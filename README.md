@@ -4,7 +4,7 @@
 
 Objective: Collecting data about the state that Romanian citizens living abroad are in, along with daily evaluation, offering information and support.
 
-Cum: Any citizen living abroad can create an account in the platform, where, though a simple questionnaire, they can configure their needs and receive guidance towards specific aid. This set of data is centralized and sent to the consular authorities. The users can monitor their own health with a simple questionnaire that they fill out regularly, for their own self, and for their families.
+How: Any citizen living abroad can create an account in the platform, where, though a simple questionnaire, they can configure their needs and receive guidance towards specific aid. This set of data is centralized and sent to the consular authorities. The users can monitor their own health with a simple questionnaire that they fill out regularly, for their own self, and for their families.
 
 [See the project live](insert_link_here)
 
