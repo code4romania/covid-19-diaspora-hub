@@ -1,12 +1,12 @@
-# Project name
+# Diaspora Hub
 
-[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/NEW_REPO_SLUG_HERE.svg?style=for-the-badge)](https://github.com/code4romania/NEW_REPO_SLUG_HERE/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/NEW_REPO_SLUG_HERE.svg?style=for-the-badge)](https://github.com/code4romania/NEW_REPO_SLUG_HERE/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/diaspora-hub.svg?style=for-the-badge)](https://github.com/code4romania/diaspora-hub/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/diaspora-hub.svg?style=for-the-badge)](https://github.com/code4romania/diaspora-hub/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
-Insert bullets description of the project if available.
+Objective: Collecting data about the state that Romanian citizens living abroad are in, along with daily evaluation, offering information and support.
+
+Cum: Any citizen living abroad can create an account in the platform, where, though a simple questionnaire, they can configure their needs and receive guidance towards specific aid. This set of data is centralized and sent to the consular authorities. The users can monitor their own health with a simple questionnaire that they fill out regularly, for their own self, and for their families.
 
 [See the project live](insert_link_here)
-
-Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 
 [Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
@@ -30,7 +30,7 @@ You can also list any pending features and planned improvements for the project 
 
 ## Repos and projects
 
-Mention all related repos and projects.
+API repo: https://github.com/code4romania/centralizare-api
 
 ## Deployment
 
