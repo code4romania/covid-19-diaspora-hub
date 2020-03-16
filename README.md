@@ -30,7 +30,7 @@ You can also list any pending features and planned improvements for the project 
 
 ## Repos and projects
 
-API repo: https://github.com/code4romania/centralizare-api
+The API is common with the Stam Acasa project and can be found in its repo https://github.com/code4romania/stam-acasa
 
 ## Deployment
 
