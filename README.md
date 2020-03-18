@@ -6,15 +6,13 @@ Objective: Collecting data about the state that Romanian citizens living abroad 
 
 How: Any citizen living abroad can create an account in the platform, where, though a simple questionnaire, they can configure their needs and receive guidance towards specific aid. This set of data is centralized and sent to the consular authorities. The users can monitor their own health with a simple questionnaire that they fill out regularly, for their own self, and for their families.
 
-[See the project live](insert_link_here)
+[See the project live](https://diasporahub.ro)
 
 [Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
 ## Contributing
 
 This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](.github/CONTRIBUTING.md).
-
-You can also list any pending features and planned improvements for the project here.
 
 ## Built With
 
