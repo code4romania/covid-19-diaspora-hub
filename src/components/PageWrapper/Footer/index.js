@@ -12,7 +12,7 @@ import FooterLink from "./FooterLink/";
 
 import "./style.scss";
 
-export const FooterComponent = () => (
+const FooterComponent = () => (
   <div className="footer-section">
     <IncubatedBy />
     <Footer>
