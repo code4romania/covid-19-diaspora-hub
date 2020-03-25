@@ -8,7 +8,7 @@ How: Any citizen living abroad can create an account in the platform, where, tho
 
 [See the project live](https://diasporahub.ro)
 
-[Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
+[Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Development](#development) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
 ## Contributing
 
@@ -17,28 +17,27 @@ This project is built by amazing volunteers and you can be one of them! Here's a
 ## Built With
 
 ### Programming languages
+ - Javascript
 
-### Platforms
-
-### Frontend framework
+### Frontend frameworks
+ - [React (16.13.*)](https://reactjs.org/)
+ - [Bulma (0.8.*)](https://bulma.io/)
 
 ### Package managers
-
-### Database technology & provider
+ - Frontend - [NPM](https://docs.npmjs.com/)
 
 ## Repos and projects
 
-The API is common with the Stam Acasa project and can be found in its repo https://github.com/code4romania/stam-acasa
+- Uses reusable components from: https://www.npmjs.com/package/@code4ro/taskforce-fe-components
+- The API is common with the Stam Acasa project and can be found in its repo https://github.com/code4romania/stam-acasa
+
+## Development
+
+- Please follow [these](/frontend/README.md) instructions
 
 ## Deployment
 
-Guide users through getting your code up and running on their own system. In this section you can talk about:
-1. Installation process
-2. Software dependencies
-3. Latest releases
-4. API references
-
-Describe and show how to build your code and run the tests.
+- automatically deployed using https://zeit.co/ from PRs for testing; preview environment: https://diaspora-hub.now.sh/
 
 ## Feedback
 
