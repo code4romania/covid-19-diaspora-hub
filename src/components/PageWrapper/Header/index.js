@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { Header as TFHeader } from "@code4ro/taskforce-fe-components";
-import { DevelopedBy } from "@code4ro/taskforce-fe-components";
+import {
+  Header as TFHeader,
+  DevelopedBy
+} from "@code4ro/taskforce-fe-components";
 
-import { ReactComponent as LogoSvg } from "../../assets/diasporahub.svg";
+import { ReactComponent as LogoSvg } from "../../../assets/diasporahub.svg";
 
 import "./header.scss";
 
