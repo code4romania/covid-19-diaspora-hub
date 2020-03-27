@@ -29,11 +29,40 @@ This project is built by amazing volunteers and you can be one of them! Here's a
 ## Repos and projects
 
 - Uses reusable components from: https://www.npmjs.com/package/@code4ro/taskforce-fe-components
-- The API is common with the Stam Acasa project and can be found in its repo https://github.com/code4romania/stam-acasa
 
 ## Development
 
-- Please follow [these](/frontend/README.md) instructions
+#### System Requirements
+ - Node.js 10 or later
+
+#### Install node dependencies
+
+```sh
+$ npm install
+```
+
+#### Run the app in the development mode
+
+```sh
+$ npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+#### Build the app
+
+```sh
+$ npm run build
+```
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
 
 ## Deployment
 
