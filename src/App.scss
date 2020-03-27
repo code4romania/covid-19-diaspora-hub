@@ -1,1 +1,24 @@
-@import "./styles/base.scss";
+@import "./fonts";
+@import "~bulma/sass/utilities/initial-variables.sass";
+@import "~bulma/sass/utilities/derived-variables.sass";
+@import "~bulma/sass/utilities/mixins.sass";
+@import "~bulma/sass/components/level.sass";
+
+.container {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.__social-share-container {
+  margin-bottom: 1.6rem;
+}
+
+.incubated-by-wrapper {
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .banner-wrapper {
+    text-align: center;
+  }
+}
