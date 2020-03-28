@@ -1,5 +1,9 @@
 import React from "react";
-import { Hero, SearchResultListItem } from "@code4ro/taskforce-fe-components";
+import {
+  Hero,
+  SearchResultListItem,
+  SocialsShare
+} from "@code4ro/taskforce-fe-components";
 import contacts from "../../data/useful-contacts";
 
 import "./styles.scss";
@@ -8,6 +12,8 @@ const UsefulContacts = () => {
   return (
     <>
       <Hero title="Contacte utile" />
+      <SocialsShare />
+
       {contacts.map((contact, index) => (
         <div key={index} className="contact-wrapper ">
           <SearchResultListItem title={contact.name}>

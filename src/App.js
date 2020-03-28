@@ -15,7 +15,7 @@ import "./App.scss";
 import NavigationTabs from "./components/shared/NavigationTabs";
 import UsefulInstruments from "./components/shared/UsefulInstruments";
 import UsefulContacts from "./components/UsefulContacts";
-import Home from "./components/Home";
+import UsefulInfo from "./components/UsefulInfo";
 import About from "./components/About";
 import Footer from "./components/Footer";
 
@@ -72,7 +72,7 @@ const App = () => {
                   <About />
                 </Route>
                 <Route exact path="/">
-                  <Home />
+                  <UsefulInfo />
                 </Route>
                 <Route exact path="/contacte-utile">
                   <UsefulContacts />
