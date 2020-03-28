@@ -14,6 +14,7 @@ import "./styles.scss";
 import { mailchimpURL } from "../../config/mailchimp";
 import pages from "../../data/static-pages";
 import Tabs from "../shared/Tabs";
+import UsefulInfo from "../UsefulInfo";
 
 const Home = () => {
   const instrumentsData = remapInstrumentsData(UsefulApps);
@@ -70,9 +71,7 @@ const Home = () => {
               <MailchimpSubscribe url={mailchimpURL} compact={true} />
             </div>
           </aside>
-          <div className="column is-8">
-            <p>hello</p>
-          </div>
+          <UsefulInfo />
         </div>
       </div>
     </>
