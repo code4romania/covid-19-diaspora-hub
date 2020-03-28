@@ -1,24 +1,23 @@
-import React, { useEffect, Suspense, lazy } from "react";
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  useHistory
-} from "react-router-dom";
-import { logPageView } from "./analyticsTracker";
+import React from "react";
+
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import {
   Header,
   DevelopedBy,
-  IncubatedBy
+  IncubatedBy,
+  Hero
 } from "@code4ro/taskforce-fe-components";
+
 import LogoSvg from "./images/logo.svg";
 import "./App.scss";
 
+import NavigationTabs from "./components/shared/NavigationTabs";
+import UsefulInstruments from "./components/shared/UsefulInstruments";
+import UsefulContacts from "./components/UsefulContacts";
 import Home from "./components/Home";
-const FooterWrapper = lazy(() => import("./components/Footer"));
-const About = lazy(() => import("./components/About"));
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 const Logo = () => (
   <Link to="/">
@@ -49,29 +48,42 @@ const AppWrapper = () => {
 };
 
 const App = () => {
-  const history = useHistory();
-  useEffect(() => {
-    logPageView(history);
-  }, [history]);
-
   return (
     <>
       <Header Logo={Logo()} MenuItems={MenuItems} />
       <DevelopedBy />
-      <Suspense fallback={<div></div>}>
-        <main>
-          <Switch>
-            <Route path="/despre">
-              <About />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </main>
-        <IncubatedBy />
-        <FooterWrapper />
-      </Suspense>
+      <div className="container">
+        <Hero
+          title="Bine ai venit"
+          useFallbackIcon
+          subtitle="Suntem la dispoziția ta cu cele mai relevante informații pentru tine"
+        />
+        <NavigationTabs />
+      </div>
+      <div className="container">
+        <div className="columns homepage-columns">
+          <aside className="column is-4 homepage-sidebar">
+            <UsefulInstruments />
+          </aside>
+          <div className="column is-8">
+            <main>
+              <Switch>
+                <Route path="/despre">
+                  <About />
+                </Route>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route exact path="/contacte-utile">
+                  <UsefulContacts />
+                </Route>
+              </Switch>
+            </main>
+          </div>
+        </div>
+      </div>
+      <IncubatedBy />
+      <Footer />
     </>
   );
 };
