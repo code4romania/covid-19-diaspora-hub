@@ -57,7 +57,7 @@ const App = () => {
   return (
     <>
       <Header Logo={Logo()} MenuItems={MenuItems} />
-      <DevelopedBy showSecondLine={true} />
+      <DevelopedBy />
       <Suspense fallback={<div></div>}>
         <main>
           <Switch>
