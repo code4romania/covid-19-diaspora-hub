@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import {
   Hero,
   Instruments,
-  MailchimpSubscribe
+  MailchimpSubscribe,
+  List,
+  ListItem
 } from "@code4ro/taskforce-fe-components";
 import UsefulApps from "../../data/useful-apps";
 import {
@@ -11,14 +14,53 @@ import {
 } from "../../utils/instruments.utils";
 import "./styles.scss";
 import { mailchimpURL } from "../../config/mailchimp";
+import pages from "../../data/static-pages";
 
 const Home = () => {
   const instrumentsData = remapInstrumentsData(UsefulApps);
+  const [selectedPage, setSelectedPage] = useState(null);
+  const { pageSlug } = useParams();
+  const history = useHistory();
+
+  useEffect(() => {
+    // Find the page
+    const page = pages.find(doc => doc.slug === (pageSlug || "/"));
+
+    if (page) {
+      setSelectedPage(page);
+    } else {
+      // Fallback to the first page if there is no slug
+      const [firstPage] = page;
+      history.push((firstPage && firstPage.slug) || "/");
+    }
+  }, [pageSlug, history]);
+
+  const navigate = slug => {
+    // Fix SecurityError of pushState on History
+    // Edge case for the `/` slug
+    history.push(`/${slug !== "/" ? slug : ""}`);
+  };
 
   return (
     <>
       <div className="container">
-        <Hero title={"Title"} useFallbackIcon={true} subtitle={"Subtitle"} />
+        <Hero
+          title={"Bine ai venit"}
+          useFallbackIcon={true}
+          subtitle={
+            "Suntem la dispoziția ta cu cele mai relevante informații pentru tine"
+          }
+        />
+        <List columns={3}>
+          {pages.map(page => (
+            <ListItem
+              title={page.title}
+              key={page.doc_id}
+              active={selectedPage && selectedPage.doc_id === page.doc_id}
+              onClick={() => navigate(page.slug)}
+            />
+          ))}
+        </List>
       </div>
 
       <div className="container">
