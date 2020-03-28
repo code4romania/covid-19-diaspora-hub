@@ -12,7 +12,7 @@ const UsefulContacts = () => {
   return (
     <>
       <Hero title="Contacte utile" />
-      <SocialsShare />
+      <SocialsShare currentPage="https://diasporahub.ro/contacte-utile" />
 
       {contacts.map((contact, index) => (
         <div key={index} className="contact-wrapper ">

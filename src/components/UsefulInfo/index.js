@@ -12,7 +12,7 @@ const UsefulInfo = () => {
   return (
     <>
       <Hero title="Informații utile pentru românii din diaspora" />
-      <SocialsShare />
+      <SocialsShare currentPage="https://diasporahub.ro" />
 
       {usefulInfoList.map(({ id, title, date, overview }) => (
         <div key={`useful_info_${id}`} className="useful_info-wrapper">
