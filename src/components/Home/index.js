@@ -3,9 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import {
   Hero,
   Instruments,
-  MailchimpSubscribe,
-  List,
-  ListItem
+  MailchimpSubscribe
 } from "@code4ro/taskforce-fe-components";
 import UsefulApps from "../../data/useful-apps";
 import {
@@ -15,6 +13,7 @@ import {
 import "./styles.scss";
 import { mailchimpURL } from "../../config/mailchimp";
 import pages from "../../data/static-pages";
+import Tabs from "../shared/Tabs";
 
 const Home = () => {
   const instrumentsData = remapInstrumentsData(UsefulApps);
@@ -51,16 +50,7 @@ const Home = () => {
             "Suntem la dispoziția ta cu cele mai relevante informații pentru tine"
           }
         />
-        <List columns={3}>
-          {pages.map(page => (
-            <ListItem
-              title={page.title}
-              key={page.doc_id}
-              active={selectedPage && selectedPage.doc_id === page.doc_id}
-              onClick={() => navigate(page.slug)}
-            />
-          ))}
-        </List>
+        <Tabs selectedPage={selectedPage} navigate={navigate} />
       </div>
 
       <div className="container">
