@@ -1,13 +1,19 @@
 import React from "react";
-import { Hero, SearchResultListItem } from "@code4ro/taskforce-fe-components";
-import usefulInfoList from "../../data/useful-info";
+import {
+  Hero,
+  SearchResultListItem,
+  SocialsShare
+} from "@code4ro/taskforce-fe-components";
 
+import usefulInfoList from "../../data/useful-info";
 import "./styles.scss";
 
 const UsefulInfo = () => {
   return (
-    <section className="column is-8">
-      <Hero title={"Informații utile pentru românii din diaspora"} />
+    <>
+      <Hero title="Informații utile pentru românii din diaspora" />
+      <SocialsShare currentPage="https://diasporahub.ro" />
+
       {usefulInfoList.map(({ id, title, date, overview }) => (
         <div key={`useful_info_${id}`} className="useful_info-wrapper">
           <SearchResultListItem
@@ -20,7 +26,7 @@ const UsefulInfo = () => {
           </SearchResultListItem>
         </div>
       ))}
-    </section>
+    </>
   );
 };
 

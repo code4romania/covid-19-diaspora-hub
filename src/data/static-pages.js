@@ -10,7 +10,7 @@ export default [
   },
   {
     title: "Informații utile",
-    slug: "informatii-utile",
+    slug: "/informatii-utile",
     doc_type: "STATIC_PAGE",
     doc_id: 102,
     active: false,
@@ -19,7 +19,7 @@ export default [
   },
   {
     title: "Contacte utile",
-    slug: "contacte-utile",
+    slug: "/contacte-utile",
     doc_type: "STATIC_PAGE",
     doc_id: 103,
     active: false,
