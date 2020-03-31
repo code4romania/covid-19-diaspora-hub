@@ -1,8 +1,6 @@
 @import "./fonts";
-@import "~bulma/sass/utilities/initial-variables.sass";
-@import "~bulma/sass/utilities/derived-variables.sass";
-@import "~bulma/sass/utilities/mixins.sass";
-@import "~bulma/sass/components/level.sass";
+
+$warning: #ffdd57;
 
 .container {
   padding-right: 1.25rem;
@@ -17,7 +15,7 @@
   padding: 1.25rem;
 
   &__warning {
-    background-color: $warning
+    background-color: $warning;
   }
 
   &__info {

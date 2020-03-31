@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  useHistory
+} from "react-router-dom";
+import { logPageView } from "./analyticsTracker";
 
 import {
   Header,
   DevelopedBy,
-  IncubatedBy,
-  Hero
+  IncubatedBy
 } from "@code4ro/taskforce-fe-components";
 
 import LogoSvg from "./images/logo.svg";
 import "./App.scss";
 
-import NavigationTabs from "./components/shared/NavigationTabs";
-import UsefulInstruments from "./components/shared/UsefulInstruments";
-import UsefulContacts from "./components/UsefulContacts";
-import UsefulInfo from "./components/UsefulInfo";
-import UsefulInfoDetails from "./components/UsefulInfoDetails";
-import About from "./components/About";
+import Sidebar from "./components/layout/Sidebar";
 import Footer from "./components/Footer";
+const UsefulContacts = lazy(() => import("./components/UsefulContacts"));
+const About = lazy(() => import("./components/About"));
+const UsefulInfo = lazy(() => import("./components/UsefulInfo"));
+const UsefulInfoDetails = lazy(() => import("./components/UsefulInfoDetails"));
 
 const Logo = () => (
   <Link to="/">
@@ -40,54 +45,55 @@ const MenuItems = [
   </Link>
 ];
 
-const AppWrapper = () => {
-  return (
-    <Router>
-      <App />
-    </Router>
-  );
-};
+const AppWrapper = () => (
+  <Router>
+    <App />
+  </Router>
+);
 
 const App = () => {
+  const history = useHistory();
+  useEffect(() => {
+    logPageView(history);
+  }, [history]);
+
   return (
     <>
       <Header Logo={Logo()} MenuItems={MenuItems} />
       <DevelopedBy />
-      <div className="container">
-        <Hero
-          title="Bine ai venit"
-          useFallbackIcon
-          subtitle="Suntem la dispoziția ta cu cele mai relevante informații pentru tine"
-        />
-        <NavigationTabs />
-      </div>
-      <div className="container">
-        <div className="columns homepage-columns">
-          <aside className="column is-4 homepage-sidebar">
-            <UsefulInstruments />
-          </aside>
-          <div className="column is-8">
-            <main>
-              <Switch>
-                <Route path="/despre">
-                  <About />
-                </Route>
-                <Route exact path="/informatii-utile">
-                  <UsefulInfo />
-                </Route>
-                <Route exact path="/contacte-utile">
-                  <UsefulContacts />
-                </Route>
-                <Route
-                  exact
-                  path="/informatii-utile/:id"
-                  component={UsefulInfoDetails}
-                />
-              </Switch>
-            </main>
-          </div>
-        </div>
-      </div>
+      <main>
+        <Suspense fallback={<div></div>}>
+          <Switch>
+            <Route exact path="/">
+              <Sidebar>
+                <p>hello</p>
+              </Sidebar>
+            </Route>
+            <Route exact path="/informatii-utile">
+              <Sidebar>
+                <UsefulInfo />
+              </Sidebar>
+            </Route>
+            <Route exact path="/contacte-utile">
+              <Sidebar>
+                <UsefulContacts />
+              </Sidebar>
+            </Route>
+            <Route path="/despre">
+              <About />
+            </Route>
+            <Route
+              exact
+              path="/informatii-utile/:id"
+              render={props => (
+                <Sidebar>
+                  <UsefulInfoDetails {...props} />
+                </Sidebar>
+              )}
+            />
+          </Switch>
+        </Suspense>
+      </main>
       <IncubatedBy />
       <Footer />
     </>
