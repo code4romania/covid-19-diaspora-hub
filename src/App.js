@@ -19,7 +19,7 @@ import LogoSvg from "./images/logo.svg";
 import "./App.scss";
 
 import Sidebar from "./components/layout/Sidebar";
-const Footer = lazy(() => import("./components/Footer"));
+import Footer from "./components/Footer";
 const UsefulContacts = lazy(() => import("./components/UsefulContacts"));
 const About = lazy(() => import("./components/About"));
 const UsefulInfo = lazy(() => import("./components/UsefulInfo"));
@@ -62,7 +62,7 @@ const App = () => {
       <Header Logo={Logo()} MenuItems={MenuItems} />
       <DevelopedBy />
       <main>
-        <Suspense fallback={<div></div>}>
+        <Suspense fallback={<div style={{ height: "800px" }}></div>}>
           <Switch>
             <Route exact path="/">
               <Sidebar>
