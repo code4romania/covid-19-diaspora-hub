@@ -9,7 +9,7 @@ const List = ({ values, title, subtitle, isInBox }) => {
     <div className={classNames}>
       {title && <h1 className="title is-size-4 mb">{title}</h1>}
       {subtitle && <h1 className="title is-size-6 mb">{subtitle}</h1>}
-      <ul className="pl--lg">{items}</ul>
+      <ul className="pl--lg list">{items}</ul>
     </div>
   );
 };

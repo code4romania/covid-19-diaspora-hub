@@ -5,18 +5,17 @@ import usefulInfoList from "../../data/useful-info";
 import SectionTypes from "./section-types";
 import Plain from "./components/Plain";
 import List from "./components/List";
-import WarningBox from "./components/WarningBox";
-import InfoBox from "./components/InfoBox";
+import Box from "./components/Box";
 import "./styles.scss";
 
 const renderSection = section => {
   switch (section.type) {
     case SectionTypes.INFO_BOX:
       section.value.isInBox = true;
-      return <InfoBox>{renderSection(section.value)}</InfoBox>;
+      return <Box>{renderSection(section.value)}</Box>;
     case SectionTypes.WARNING_BOX:
       section.value.isInBox = true;
-      return <WarningBox>{renderSection(section.value)}</WarningBox>;
+      return <Box type="warning">{renderSection(section.value)}</Box>;
     case SectionTypes.PLAIN:
       return <Plain value={section.value} isInBox={section.isInBox} />;
     case SectionTypes.LIST:
