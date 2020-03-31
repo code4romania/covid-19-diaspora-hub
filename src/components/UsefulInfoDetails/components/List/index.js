@@ -7,8 +7,8 @@ const List = ({ values, title, subtitle, isInBox }) => {
   const items = values.map((value, index) => <li key={index}>{value}</li>);
   return (
     <div className={classNames}>
-      {title ? <h1 className="title is-size-4 mb">{title}</h1> : null}
-      {subtitle ? <h1 className="title is-size-6 mb">{subtitle}</h1> : null}
+      {title && <h1 className="title is-size-4 mb">{title}</h1>}
+      {subtitle && <h1 className="title is-size-6 mb">{subtitle}</h1>}
       <ul className="pl--lg">{items}</ul>
     </div>
   );
