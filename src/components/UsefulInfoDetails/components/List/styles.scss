@@ -1,0 +1,13 @@
+li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 15px;
+}
+
+li:before {
+    content: "\25BA \0020";
+    font-size: 10px;
+    position: absolute;
+    top: 7px;
+    left: -25px;
+}

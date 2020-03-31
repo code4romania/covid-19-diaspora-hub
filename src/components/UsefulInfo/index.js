@@ -4,7 +4,6 @@ import {
   SearchResultListItem,
   SocialsShare
 } from "@code4ro/taskforce-fe-components";
-
 import usefulInfoList from "../../data/useful-info";
 import "./styles.scss";
 
@@ -20,9 +19,9 @@ const UsefulInfo = () => {
             date={date}
             title={title}
             readMoreText={"Citeste mai mult"}
-            readMoreLink="/"
+            readMoreLink={`/informatii-utile/${id}`}
           >
-            <p>{overview} </p>
+            <p className="overview">{overview}</p>
           </SearchResultListItem>
         </div>
       ))}

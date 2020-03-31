@@ -16,6 +16,7 @@ import NavigationTabs from "./components/shared/NavigationTabs";
 import UsefulInstruments from "./components/shared/UsefulInstruments";
 import UsefulContacts from "./components/UsefulContacts";
 import UsefulInfo from "./components/UsefulInfo";
+import UsefulInfoDetails from "./components/UsefulInfoDetails";
 import About from "./components/About";
 import Footer from "./components/Footer";
 
@@ -71,12 +72,17 @@ const App = () => {
                 <Route path="/despre">
                   <About />
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/informatii-utile">
                   <UsefulInfo />
                 </Route>
                 <Route exact path="/contacte-utile">
                   <UsefulContacts />
                 </Route>
+                <Route
+                  exact
+                  path="/informatii-utile/:id"
+                  component={UsefulInfoDetails}
+                />
               </Switch>
             </main>
           </div>

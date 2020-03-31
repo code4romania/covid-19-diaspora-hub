@@ -13,6 +13,26 @@
   margin-bottom: 1.6rem;
 }
 
+.box {
+  padding: 1.25rem;
+
+  &__warning {
+    background-color: $warning
+  }
+
+  &__info {
+    background-color: hsla(204, 86%, 53%, 0.1);
+  }
+}
+
+.pl--lg {
+  padding-left: 3rem;
+}
+
+.mb {
+  margin-bottom: 1.6rem;
+}
+
 .incubated-by-wrapper {
   margin-top: 2rem;
 }
