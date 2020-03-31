@@ -19,7 +19,7 @@ import LogoSvg from "./images/logo.svg";
 import "./App.scss";
 
 import Sidebar from "./components/layout/Sidebar";
-import Footer from "./components/Footer";
+const Footer = lazy(() => import("./components/Footer"));
 const UsefulContacts = lazy(() => import("./components/UsefulContacts"));
 const About = lazy(() => import("./components/About"));
 const UsefulInfo = lazy(() => import("./components/UsefulInfo"));
