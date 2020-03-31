@@ -12,7 +12,7 @@ const renderSection = section => {
   switch (section.type) {
     case SectionTypes.INFO_BOX:
       section.value.isInBox = true;
-      return <Box type="info">{renderSection(section.value)}</Box>;
+      return <Box>{renderSection(section.value)}</Box>;
     case SectionTypes.WARNING_BOX:
       section.value.isInBox = true;
       return <Box type="warning">{renderSection(section.value)}</Box>;

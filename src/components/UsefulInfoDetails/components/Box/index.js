@@ -10,4 +10,6 @@ Box.propTypes = {
   type: PropTypes.oneOf("warning", "info")
 };
 
+Box.defaultProps = { type: "info" };
+
 export default Box;
