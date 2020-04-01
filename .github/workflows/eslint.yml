@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: "./frontend"
 
     steps:
       - uses: actions/checkout@v2
@@ -18,10 +20,11 @@ jobs:
           node-version: 12.x
 
       - name: Install dependencies
+        working-directory: ${{env.working-directory}}
         run: npm ci
 
       - name: Run ESLint check
-        run: |
-          npm run lint
+        working-directory: ${{env.working-directory}}
+        run: npm run lint
         env:
           CI: true
