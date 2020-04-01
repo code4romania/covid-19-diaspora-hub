@@ -23,7 +23,7 @@ Also, this is [the workflow we follow](.github/WORKFLOW.md).
 ### Programming languages
 
 - Backend: Laravel
-- Frontend: React JS
+- Frontend: [React JS](https://reactjs.org)
 
 ## Feedback
 
