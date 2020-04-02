@@ -1,0 +1,19 @@
+FROM composer:1.6.5 as build
+WORKDIR /app
+COPY . .
+RUN composer install --ignore-platform-reqs --no-scripts --prefer-dist --optimize-autoloader --no-dev
+
+
+FROM php:7.4-apache
+WORKDIR /srv/app
+EXPOSE 80
+
+RUN docker-php-ext-install pdo pdo_mysql \
+    && a2enmod rewrite negotiation \
+    && docker-php-ext-install opcache
+
+COPY --chown=www-data:www-data --from=build /app .
+COPY ./docker-config/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+RUN php artisan config:cache
+RUN php artisan route:cache
