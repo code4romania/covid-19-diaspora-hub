@@ -9,7 +9,7 @@ services:
     volumes:
       - ./:/app
     ports:
-      - 80:80
+      - 9000:9000
 
   mariadb:
     image: mariadb:10.4.12
