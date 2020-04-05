@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\v1\TypeResource;
 use App\Http\Resources\v1\CategoryCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,16 +18,19 @@ class EntityResource extends JsonResource
         return [
             'id'          => $this->id,
             'name'        => $this->name,
-            'type'        => $this->type,
             'description' => $this->description,
-            'categories'  => new CategoryCollection($this->categories),
+            'type'        => $this->type->name ?? null,
+            'categories'  => $this->categories->pluck('name'),
 
             'location' => [
-                'country'   => $this->country,
-                'city'      => $this->city,
-                'address'   => $this->address,
-                'latitude'  => $this->latitude,
-                'longitude' => $this->longitude,
+                'address_line_1' => $this->address_line_1,
+                'address_line_2' => $this->address_line_2,
+                'city'           => $this->city,
+                'county'         => $this->county,
+                'postal_code'    => $this->postal_code,
+                'country'        => $this->country,
+                'latitude'       => $this->latitude,
+                'longitude'      => $this->longitude,
             ],
 
             'contact' => [
@@ -34,10 +38,6 @@ class EntityResource extends JsonResource
                 'phone' => $this->phone,
                 'url'   => $this->url,
             ],
-
-            'links' => [
-                'self' => route('api.v1.entities.show', $this),
-            ]
         ];
     }
 }

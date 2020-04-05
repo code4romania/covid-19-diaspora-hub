@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\v1\EntityController;
 use App\Http\Controllers\Api\v1\CategoryController;
+use App\Http\Controllers\Api\v1\EntityController;
+use App\Http\Controllers\Api\v1\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -20,8 +21,12 @@ Route::prefix('entities')->name('entities.')->group(function () {
     Route::get('{entity}', [EntityController::class, 'show'])->name('show');
 });
 
+Route::prefix('types')->name('types.')->group(function () {
+    Route::get('/', [TypeController::class, 'index'])->name('index');
+    Route::get('{type}', [TypeController::class, 'show'])->name('show');
+});
+
 Route::prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
     Route::get('{category}', [CategoryController::class, 'show'])->name('show');
-    Route::get('{category}/entities', [CategoryController::class, 'entities'])->name('entities');
 });

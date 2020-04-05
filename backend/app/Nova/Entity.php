@@ -2,9 +2,12 @@
 
 namespace App\Nova;
 
+use App\Nova\Type;
 use App\Nova\Filters\CategoryFilter;
+use App\Nova\Filters\TypeFilter;
 use Benjacho\BelongsToManyField\BelongsToManyField;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Place;
@@ -88,7 +91,10 @@ class Entity extends Resource
                 ->rules('required', 'max:500')
                 ->alwaysShow(),
 
-            BelongsToManyField::make(__('nova.categories'), 'categories', Category::class),
+            BelongsTo::make(__('nova.Type'), 'type', Type::class),
+
+            BelongsToManyField::make(__('nova.categories'), 'categories', Category::class)
+                ->rules('required'),
 
             $this->contactPanel(),
 
@@ -117,6 +123,7 @@ class Entity extends Resource
     {
         return [
             new CategoryFilter,
+            new TypeFilter,
         ];
     }
 
@@ -148,15 +155,15 @@ class Entity extends Resource
             __('nova.panels.contact'),
             [
                 Text::make(__('nova.fields.email'), 'email')
-                    ->rules('required', 'email', 'max:254')
+                    ->rules('nullable', 'email', 'max:254')
                     ->hideFromIndex(),
 
                 Text::make(__('nova.fields.phone'), 'phone')
-                    ->rules('required')
+                    ->rules('nullable')
                     ->hideFromIndex(),
 
                 Text::make(__('nova.fields.url'), 'url')
-                    ->rules('required', 'url')
+                    ->rules('nullable', 'url')
                     ->hideFromIndex(),
             ]
         );
@@ -167,20 +174,28 @@ class Entity extends Resource
         return new Panel(
             __('nova.panels.address'),
             [
-                Place::make(__('nova.fields.address'), 'address')
-                    ->latitude('lat')
-                    ->longitude('lng'),
+                Place::make(__('nova.fields.address_line_1'), 'address_line_1')
+                    ->state('county'),
 
-                Country::make(__('nova.fields.country'), 'country')
+                Text::make(__('nova.fields.address_line_2'), 'address_line_2')
+                    ->hideFromIndex()
                     ->sortable(),
 
                 Text::make(__('nova.fields.city'), 'city')
                     ->sortable(),
 
-                Text::make(__('nova.fields.lat'), 'lat')
+                Text::make(__('nova.fields.county'), 'county'),
+
+                Text::make(__('nova.fields.postal_code'), 'postal_code')
                     ->hideFromIndex(),
 
-                Text::make(__('nova.fields.lng'), 'lng')
+                Country::make(__('nova.fields.country'), 'country')
+                    ->sortable(),
+
+                Text::make(__('nova.fields.latitude'), 'latitude')
+                    ->hideFromIndex(),
+
+                Text::make(__('nova.fields.longitude'), 'longitude')
                     ->hideFromIndex(),
             ]
         );

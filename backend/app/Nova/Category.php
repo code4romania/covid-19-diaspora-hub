@@ -37,7 +37,7 @@ class Category extends Resource
      */
     public static function group(): string
     {
-        return __('nova.entities');
+        return __('nova.support');
     }
 
     public static function label(): string

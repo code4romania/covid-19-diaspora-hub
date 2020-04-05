@@ -22,6 +22,8 @@ class EntityCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return $this->collection;
+        return $this->collection->map
+            ->only(['id', 'name', 'country'])
+            ->when(config('app.env') === 'documentation', fn ($colection) => $colection->forPage(1, 5));
     }
 }
