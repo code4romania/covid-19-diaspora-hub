@@ -2,8 +2,6 @@
 
 namespace App\Http\Resources\v1;
 
-use App\Http\Resources\v1\TypeResource;
-use App\Http\Resources\v1\CategoryCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EntityResource extends JsonResource
@@ -15,7 +13,7 @@ class EntityResource extends JsonResource
      */
     public function toArray($request): array
     {
-        return [
+        $data = [
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
@@ -39,5 +37,11 @@ class EntityResource extends JsonResource
                 'url'   => $this->url,
             ],
         ];
+
+        if ($this->distance) {
+            $data['distance'] = round($this->distance, 2);
+        }
+
+        return $data;
     }
 }

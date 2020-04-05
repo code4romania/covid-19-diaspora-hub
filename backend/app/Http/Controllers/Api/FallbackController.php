@@ -9,7 +9,7 @@ class FallbackController extends Controller
     public function __invoke()
     {
         return response()->json([
-            'message' => __('api.response.404'),
+            'message' => __('api.response.endpointNotFound'),
         ], 404);
     }
 }
