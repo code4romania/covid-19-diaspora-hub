@@ -343,7 +343,7 @@ curl -X GET \
 
 Parameter | Status | Description
 --------- | ------- | ------- | -----------
-    `page` |  optional  | int The page number.
+    `page` |  optional  | The page number.
 
 <!-- END_4288e7337688d08ee1ca084a9b8a3b76 -->
 
@@ -433,6 +433,117 @@ Parameter | Status | Description
     `entity` |  required  | The ID of the entity.
 
 <!-- END_a1414f1a639a9d59798dede94d307873 -->
+
+<!-- START_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
+## Search for entities
+
+> Example request:
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/entities/search"
+);
+
+let params = {
+    "query": "Barcelona",
+    "radius": "50",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+
+fetch(url, {
+    method: "GET",
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://localhost/api/v1/entities/search',
+    [
+        'query' => [
+            'query'=> 'Barcelona',
+            'radius'=> '50',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://localhost/api/v1/entities/search'
+params = {
+  'query': 'Barcelona',
+  'radius': '50',
+}
+response = requests.request('GET', url, params=params)
+response.json()
+```
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/entities/search?query=Barcelona&radius=50" 
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 287,
+            "name": "Macovei-Matei",
+            "description": "Acu să-l vedem! zise împieliţatul de Neghiniţă. Împăratul ieşi plângând din cetate. Neghiniţă, sus pe umărul lui. - De ce plângi, măria-ta? ţine-ţi firea, nu fi muiere. - Ei, poi, înainte de-a fi împărat, vedea, auzea, muncea, cumpătat la.",
+            "type": "Qui provident aperiam nesciunt non et reiciendis.",
+            "categories": [
+                "Quo velit id aut molestias.",
+                "Velit aut repudiandae quis consequuntur aut.",
+                "Nesciunt dolorem modi esse placeat.",
+                "Veritatis rerum expedita consectetur et dolores.",
+                "Reiciendis maxime occaecati est dolor ex."
+            ],
+            "location": {
+                "address_line_1": "Splaiul Traian nr. 299, bl. 95, ap. 69",
+                "address_line_2": null,
+                "city": "Galați",
+                "county": "Bihor",
+                "postal_code": "617552",
+                "country": "PN",
+                "latitude": 41.582811,
+                "longitude": 2.56642
+            },
+            "contact": {
+                "email": "florea12@example.com",
+                "phone": "0275603403",
+                "url": "http:\/\/www.moldovan.com\/"
+            },
+            "distance": 39.29
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/entities/search`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `query` |  required  | Street address, city or other geocodable string.
+    `radius` |  optional  | Show results only this many km away from the query coordinates. Defaults to 100.
+    `country` |  optional  | ISO 3166-1 alpha-2 country code.
+
+<!-- END_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
 
 #Entity Types
 
