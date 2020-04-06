@@ -3,22 +3,29 @@
 namespace App\Helpers;
 
 use Algolia\AlgoliaSearch\PlacesClient;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class Places
 {
     public static function geocode(string $query): ?array
     {
-        $places = PlacesClient::create(
-            config('places.algolia.id'),
-            config('places.algolia.secret')
-        );
+        $key = 'geocoded-' . hash('sha1', $query);
+        $expiresAt = Carbon::now()->addHour();
 
-        $result = $places->search($query);
+        return Cache::remember($key, $expiresAt, function () use ($query) {
+            $places = PlacesClient::create(
+                config('places.algolia.id'),
+                config('places.algolia.secret')
+            );
 
-        if (!$result['nbHits']) {
-            return null;
-        }
+            $result = $places->search($query);
 
-        return $result['hits'][0]['_geoloc'];
+            if (!$result['nbHits']) {
+                return null;
+            }
+
+            return $result['hits'][0]['_geoloc'];
+        });
     }
 }
