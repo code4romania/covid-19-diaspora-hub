@@ -118,21 +118,41 @@ response.json()</code></pre>
         {
             "id": 5,
             "name": "Rerum voluptatem voluptatem voluptatem expedita."
+        },
+        {
+            "id": 6,
+            "name": "Veritatis rerum expedita consectetur et dolores."
+        },
+        {
+            "id": 7,
+            "name": "Quo eaque itaque odit sed a."
+        },
+        {
+            "id": 8,
+            "name": "Similique quo laborum voluptas vel eos ratione ut."
+        },
+        {
+            "id": 9,
+            "name": "Architecto incidunt iste magnam sed sunt numquam id ex."
+        },
+        {
+            "id": 10,
+            "name": "Reiciendis maxime occaecati est dolor ex."
         }
     ],
     "links": {
         "first": "http:\/\/localhost\/api\/v1\/categories?page=1",
-        "last": "http:\/\/localhost\/api\/v1\/categories?page=2",
+        "last": "http:\/\/localhost\/api\/v1\/categories?page=1",
         "prev": null,
-        "next": "http:\/\/localhost\/api\/v1\/categories?page=2"
+        "next": null
     },
     "meta": {
         "current_page": 1,
         "from": 1,
-        "last_page": 2,
+        "last_page": 1,
         "path": "http:\/\/localhost\/api\/v1\/categories",
-        "per_page": 5,
-        "to": 5,
+        "per_page": 15,
+        "to": 10,
         "total": 10
     }
 }</code></pre>
@@ -316,17 +336,17 @@ response.json()</code></pre>
     ],
     "links": {
         "first": "http:\/\/localhost\/api\/v1\/entities?page=1",
-        "last": "http:\/\/localhost\/api\/v1\/entities?page=100",
+        "last": "http:\/\/localhost\/api\/v1\/entities?page=34",
         "prev": null,
         "next": "http:\/\/localhost\/api\/v1\/entities?page=2"
     },
     "meta": {
         "current_page": 1,
         "from": 1,
-        "last_page": 100,
+        "last_page": 34,
         "path": "http:\/\/localhost\/api\/v1\/entities",
-        "per_page": 5,
-        "to": 5,
+        "per_page": 15,
+        "to": 15,
         "total": 500
     }
 }</code></pre>
@@ -440,7 +460,8 @@ response.json()</code></pre>
 );
 
 let params = {
-    "query": "Barcelona",
+    "lat": "41.3829",
+    "lng": "2.17743",
     "radius": "50",
 };
 Object.keys(params)
@@ -457,7 +478,8 @@ $response = $client-&gt;get(
     'http://localhost/api/v1/entities/search',
     [
         'query' =&gt; [
-            'query'=&gt; 'Barcelona',
+            'lat'=&gt; '41.3829',
+            'lng'=&gt; '2.17743',
             'radius'=&gt; '50',
         ],
     ]
@@ -469,13 +491,14 @@ import json
 
 url = 'http://localhost/api/v1/entities/search'
 params = {
-  'query': 'Barcelona',
+  'lat': '41.3829',
+  'lng': '2.17743',
   'radius': '50',
 }
 response = requests.request('GET', url, params=params)
 response.json()</code></pre>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/v1/entities/search?query=Barcelona&amp;radius=50" </code></pre>
+    -G "http://localhost/api/v1/entities/search?lat=41.3829&amp;lng=2.17743&amp;radius=50" </code></pre>
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
@@ -525,9 +548,14 @@ response.json()</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><code>query</code></td>
+<td><code>lat</code></td>
 <td>required</td>
-<td>Street address, city or other geocodable string.</td>
+<td>Latitude.</td>
+</tr>
+<tr>
+<td><code>lng</code></td>
+<td>required</td>
+<td>Longitude.</td>
 </tr>
 <tr>
 <td><code>radius</code></td>
@@ -615,7 +643,7 @@ response.json()</code></pre>
         "from": 1,
         "last_page": 1,
         "path": "http:\/\/localhost\/api\/v1\/types",
-        "per_page": 5,
+        "per_page": 15,
         "to": 3,
         "total": 3
     }
