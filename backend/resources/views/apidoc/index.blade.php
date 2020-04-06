@@ -60,12 +60,6 @@
     "http://localhost/api/v1/categories"
 );
 
-let params = {
-    "page": "1",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 fetch(url, {
     method: "GET",
 })
@@ -73,27 +67,17 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'http://localhost/api/v1/categories',
-    [
-        'query' =&gt; [
-            'page'=&gt; '1',
-        ],
-    ]
-);
+$response = $client-&gt;get('http://localhost/api/v1/categories');
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
 url = 'http://localhost/api/v1/categories'
-params = {
-  'page': '1',
-}
-response = requests.request('GET', url, params=params)
+response = requests.request('GET', url)
 response.json()</code></pre>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/v1/categories?page=1" </code></pre>
+    -G "http://localhost/api/v1/categories" </code></pre>
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
@@ -101,60 +85,58 @@ response.json()</code></pre>
     "data": [
         {
             "id": 1,
-            "name": "Quo velit id aut molestias."
+            "name": "Eum cupiditate est doloremque placeat nesciunt sit.",
+            "builtin": false
         },
         {
             "id": 2,
-            "name": "Velit aut repudiandae quis consequuntur aut."
+            "name": "Qui qui pariatur labore dolore.",
+            "builtin": false
         },
         {
             "id": 3,
-            "name": "Dolor voluptas deleniti sit dolor sint consequatur."
+            "name": "Ullam earum impedit dolores nostrum molestiae laborum praesentium facilis.",
+            "builtin": false
         },
         {
             "id": 4,
-            "name": "Nesciunt dolorem modi esse placeat."
+            "name": "Aut in qui repellendus tenetur.",
+            "builtin": false
         },
         {
             "id": 5,
-            "name": "Rerum voluptatem voluptatem voluptatem expedita."
+            "name": "Eum minus aut sapiente dolorem tenetur.",
+            "builtin": false
+        },
+        {
+            "id": 6,
+            "name": "Enim autem ipsam rem dolorem a.",
+            "builtin": false
+        },
+        {
+            "id": 7,
+            "name": "Minus in et ad saepe.",
+            "builtin": false
+        },
+        {
+            "id": 8,
+            "name": "Recusandae ratione qui aliquid ratione et quo nostrum.",
+            "builtin": false
+        },
+        {
+            "id": 9,
+            "name": "Omnis beatae accusamus harum nihil aspernatur sed.",
+            "builtin": false
+        },
+        {
+            "id": 10,
+            "name": "Odit alias porro aspernatur aut maiores perspiciatis.",
+            "builtin": true
         }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/v1\/categories?page=1",
-        "last": "http:\/\/localhost\/api\/v1\/categories?page=2",
-        "prev": null,
-        "next": "http:\/\/localhost\/api\/v1\/categories?page=2"
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 2,
-        "path": "http:\/\/localhost\/api\/v1\/categories",
-        "per_page": 5,
-        "to": 5,
-        "total": 10
-    }
+    ]
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/v1/categories</code></p>
-<h4>Query Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>page</code></td>
-<td>optional</td>
-<td>The page number.</td>
-</tr>
-</tbody>
-</table>
 <!-- END_80420c095ed96da032c9eb419d7d6e2d -->
 <!-- START_2378770b4f57b93f810abda7c44614b8 -->
 <h2>Get a single category</h2>
@@ -189,32 +171,34 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Rerum voluptatem voluptatem voluptatem expedita.",
+        "id": 5,
+        "name": "Eum minus aut sapiente dolorem tenetur.",
+        "builtin": false,
         "entities": [
             {
-                "id": 1,
-                "name": "Aldea-Ignat",
-                "country": "GL"
+                "id": 3,
+                "name": "Bogdan, Nedelcu and Toth",
+                "country": "SI"
             },
             {
-                "id": 3,
-                "name": "Cucu-Toma",
-                "country": "KZ"
+                "id": 4,
+                "name": "Stoian, Peter and Ichim",
+                "country": "TK"
             },
             {
                 "id": 5,
-                "name": "Iosif, Pascu and Baciu",
-                "country": "SR"
+                "name": "Sima, Cosma and Marinescu",
+                "country": "CF"
             },
             {
-                "id": 6,
-                "name": "Barbulescu, Rosca and Baciu",
-                "country": "BL"
+                "id": 8,
+                "name": "Szekely and Sons",
+                "country": "LU"
             },
             {
-                "id": 12,
-                "name": "Ene Ltd",
-                "country": "MZ"
+                "id": 10,
+                "name": "Munteanu-Zaharia",
+                "country": "IE"
             }
         ]
     }
@@ -290,45 +274,30 @@ response.json()</code></pre>
     "data": [
         {
             "id": 1,
-            "name": "Aldea-Ignat",
-            "country": "GL"
+            "name": "Sava-Tanase",
+            "country": "KW"
         },
         {
             "id": 2,
-            "name": "Balint, Mirea and Stancu",
-            "country": "MR"
+            "name": "David, Moise and Grigoras",
+            "country": "EG"
         },
         {
             "id": 3,
-            "name": "Cucu-Toma",
-            "country": "KZ"
+            "name": "Bogdan, Nedelcu and Toth",
+            "country": "SI"
         },
         {
             "id": 4,
-            "name": "Dragoi-Gavrila",
-            "country": "MA"
+            "name": "Stoian, Peter and Ichim",
+            "country": "TK"
         },
         {
             "id": 5,
-            "name": "Iosif, Pascu and Baciu",
-            "country": "SR"
+            "name": "Sima, Cosma and Marinescu",
+            "country": "CF"
         }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/v1\/entities?page=1",
-        "last": "http:\/\/localhost\/api\/v1\/entities?page=100",
-        "prev": null,
-        "next": "http:\/\/localhost\/api\/v1\/entities?page=2"
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 100,
-        "path": "http:\/\/localhost\/api\/v1\/entities",
-        "per_page": 5,
-        "to": 5,
-        "total": 500
-    }
+    ]
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/v1/entities</code></p>
@@ -345,7 +314,7 @@ response.json()</code></pre>
 <tr>
 <td><code>page</code></td>
 <td>optional</td>
-<td>int The page number.</td>
+<td>The page number.</td>
 </tr>
 </tbody>
 </table>
@@ -383,30 +352,45 @@ response.json()</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": 2,
-        "name": "Balint, Mirea and Stancu",
-        "description": "Împăratul, cam de nevoie, răspunse: - Aşa o fi, se potriveşte ş-aşa, fiindcă ştii tu să cerni, şi ea să risipească, tu să pui de mămăligă, şi ea să răstoarne căldarea pe foc. - Dacă e pe-aşa, m-aş mulţumi şi pe-un copil cât ghemul, numai s-aud în casă \"mamă\", că mult e pustiu când uşa se închide peste doi bătrâni. - Da’ dacă ar fi mai mic?.",
-        "type": "Beatae aperiam et et ut fugit eius id aliquid.",
+        "name": "David, Moise and Grigoras",
+        "description": "Ce bucurie pe unchiaşul ei. Şi unchiaşul, ba la pădure, ba la arie, fără bici, fără nimic. Unchiaşul, minunat, îl duse la arie. Cum ajunse, Neghiniţă sări pe-un cal şi începu să strige din toate puterile în urechea împărătesei şi-i aflase gândul: \"Că ce bine-ar fi să mai facă vreo drăcie. Îi intră în urechea.",
+        "type": "Cupiditate quia dolor consequatur et cum et delectus voluptatem.",
         "categories": [
-            "Quo velit id aut molestias.",
-            "Velit aut repudiandae quis consequuntur aut.",
-            "Dolor voluptas deleniti sit dolor sint consequatur.",
-            "Nesciunt dolorem modi esse placeat.",
-            "Reiciendis maxime occaecati est dolor ex."
+            {
+                "id": 2,
+                "name": "Qui qui pariatur labore dolore.",
+                "builtin": false
+            },
+            {
+                "id": 3,
+                "name": "Ullam earum impedit dolores nostrum molestiae laborum praesentium facilis.",
+                "builtin": false
+            },
+            {
+                "id": 6,
+                "name": "Enim autem ipsam rem dolorem a.",
+                "builtin": false
+            },
+            {
+                "id": 10,
+                "name": "Odit alias porro aspernatur aut maiores perspiciatis.",
+                "builtin": true
+            }
         ],
         "location": {
-            "address_line_1": "Calea Muncii 0A",
+            "address_line_1": "P-ța Mihai Viteazul 2B",
             "address_line_2": null,
-            "city": "Sfântu Gheorghe",
-            "county": "Arad",
-            "postal_code": "917516",
-            "country": "MR",
-            "latitude": -53.359771,
-            "longitude": -144.084054
+            "city": "Pantelimon",
+            "county": "Suceava",
+            "postal_code": "921336",
+            "country": "EG",
+            "latitude": -81.607544,
+            "longitude": -80.054887
         },
         "contact": {
-            "email": "florea.staicu@example.net",
-            "phone": "0355379914",
-            "url": "http:\/\/ganea.info\/"
+            "email": "vpetrea@example.net",
+            "phone": "0774661130",
+            "url": "http:\/\/www.munteanu.com\/maxime-modi-sunt-cum-molestiae"
         }
     }
 }</code></pre>
@@ -430,18 +414,19 @@ response.json()</code></pre>
 </tbody>
 </table>
 <!-- END_a1414f1a639a9d59798dede94d307873 -->
-<h1>Entity Types</h1>
-<!-- START_c8c46f79ea22771862059c1f7bcb0e64 -->
-<h2>Get all entity types</h2>
+<!-- START_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
+<h2>Search for entities</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/types"
+    "http://localhost/api/v1/entities/search"
 );
 
 let params = {
-    "page": "1",
+    "lat": "85.766782",
+    "lng": "-94.2354",
+    "radius": "100",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -454,10 +439,12 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost/api/v1/types',
+    'http://localhost/api/v1/entities/search',
     [
         'query' =&gt; [
-            'page'=&gt; '1',
+            'lat'=&gt; '85.766782',
+            'lng'=&gt; '-94.2354',
+            'radius'=&gt; '100',
         ],
     ]
 );
@@ -466,50 +453,88 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/v1/types'
+url = 'http://localhost/api/v1/entities/search'
 params = {
-  'page': '1',
+  'lat': '85.766782',
+  'lng': '-94.2354',
+  'radius': '100',
 }
 response = requests.request('GET', url, params=params)
 response.json()</code></pre>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/v1/types?page=1" </code></pre>
+    -G "http://localhost/api/v1/entities/search?lat=85.766782&amp;lng=-94.2354&amp;radius=100" </code></pre>
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
     "data": [
         {
-            "id": 1,
-            "name": "Beatae aperiam et et ut fugit eius id aliquid."
+            "id": 252,
+            "name": "Micu, Bejan and Simion",
+            "description": "În sfârşit, ce-i veni lui Neghiniţă, gândul lumii. De mic ce sunt, pătrund în urechile.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 8,
+                    "name": "Recusandae ratione qui aliquid ratione et quo nostrum.",
+                    "builtin": false
+                },
+                {
+                    "id": 9,
+                    "name": "Omnis beatae accusamus harum nihil aspernatur sed.",
+                    "builtin": false
+                }
+            ],
+            "location": {
+                "address_line_1": "Aleea Florilor 60",
+                "address_line_2": null,
+                "city": "Fierbinți-Târg",
+                "county": "Olt",
+                "postal_code": "206993",
+                "country": "BW",
+                "latitude": 85.766782,
+                "longitude": -99.968812
+            },
+            "contact": {
+                "email": "silvana38@example.com",
+                "phone": "0731559679",
+                "url": "https:\/\/www.pintilie.com\/accusantium-sit-aliquam-possimus-perferendis-aut-aut"
+            },
+            "distance": 47.04
         },
         {
-            "id": 2,
-            "name": "Aut explicabo itaque id."
-        },
-        {
-            "id": 3,
-            "name": "Qui provident aperiam nesciunt non et reiciendis."
+            "id": 475,
+            "name": "Necula-Ursu",
+            "description": "Împărate, zise împărăteasa, zău aşa, ghiceşte-mi şi mie un gând. - Să nu fie decât adevărul pe lume! - Ferit-a Dumnezeu, măria-ta, fără învăţaţi cine să mintă lumea? - Să te sărut, că-mi umpluşi casa cu dragoste când îmi ziseşi mamă. - Încet, mamă, încet, că mă striveşti, zise Neghiniţă. - Să vedem, răspunse împăratul. Împărăteasa se gândi să ducă împăratului aşa minune. - Un împărat dacă n-a şti el de la rădăcină? Şi bătrâna începu să se închine. - Bine, mătuşă, bine, da’ de unde şi.",
+            "type": "Cupiditate quia dolor consequatur et cum et delectus voluptatem.",
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Eum cupiditate est doloremque placeat nesciunt sit.",
+                    "builtin": false
+                }
+            ],
+            "location": {
+                "address_line_1": "Str. Bega nr. 070, bl. B, ap. 20",
+                "address_line_2": null,
+                "city": "Filiași",
+                "county": "Iași",
+                "postal_code": "310606",
+                "country": "KN",
+                "latitude": 85.409596,
+                "longitude": -88.242789
+            },
+            "contact": {
+                "email": "musat.visarion@example.net",
+                "phone": "0731135313",
+                "url": "http:\/\/www.barbulescu.com\/"
+            },
+            "distance": 64.79
         }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/v1\/types?page=1",
-        "last": "http:\/\/localhost\/api\/v1\/types?page=1",
-        "prev": null,
-        "next": null
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 1,
-        "path": "http:\/\/localhost\/api\/v1\/types",
-        "per_page": 5,
-        "to": 3,
-        "total": 3
-    }
+    ]
 }</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET api/v1/types</code></p>
+<p><code>GET api/v1/entities/search</code></p>
 <h4>Query Parameters</h4>
 <table>
 <thead>
@@ -521,12 +546,72 @@ response.json()</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><code>page</code></td>
+<td><code>lat</code></td>
+<td>required</td>
+<td>Latitude.</td>
+</tr>
+<tr>
+<td><code>lng</code></td>
+<td>required</td>
+<td>Longitude.</td>
+</tr>
+<tr>
+<td><code>radius</code></td>
 <td>optional</td>
-<td>The page number.</td>
+<td>Show results only this many km away from the query coordinates. Defaults to 100.</td>
 </tr>
 </tbody>
 </table>
+<!-- END_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
+<h1>Entity Types</h1>
+<!-- START_c8c46f79ea22771862059c1f7bcb0e64 -->
+<h2>Get all entity types</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/types"
+);
+
+fetch(url, {
+    method: "GET",
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get('http://localhost/api/v1/types');
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost/api/v1/types'
+response = requests.request('GET', url)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/types" </code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 1,
+            "name": "Cupiditate quia dolor consequatur et cum et delectus voluptatem."
+        },
+        {
+            "id": 2,
+            "name": "Repellendus tempore impedit ea beatae repellat."
+        },
+        {
+            "id": 3,
+            "name": "Quae laborum at quia quisquam itaque."
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/types</code></p>
 <!-- END_c8c46f79ea22771862059c1f7bcb0e64 -->
 <!-- START_a90f973c81ffc9c1d05fa5beecb982b2 -->
 <h2>Get a single entity type</h2>
@@ -561,27 +646,27 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "name": "Qui provident aperiam nesciunt non et reiciendis.",
+        "name": "Quae laborum at quia quisquam itaque.",
         "entities": [
             {
                 "id": 3,
-                "name": "Cucu-Toma"
+                "name": "Bogdan, Nedelcu and Toth"
             },
             {
-                "id": 9,
-                "name": "Banu, Sandor and Stefan"
+                "id": 4,
+                "name": "Stoian, Peter and Ichim"
+            },
+            {
+                "id": 6,
+                "name": "Moga LLC"
             },
             {
                 "id": 10,
-                "name": "Grigore-Cristea"
+                "name": "Munteanu-Zaharia"
             },
             {
-                "id": 11,
-                "name": "Ionescu, Catana and Chivu"
-            },
-            {
-                "id": 19,
-                "name": "Iliescu PLC"
+                "id": 12,
+                "name": "Moga Inc"
             }
         ]
     }

@@ -15,8 +15,10 @@ class CategoryResource extends JsonResource
     {
 
         return [
-            'name'     => $this->name,
-            'entities' => new EntityCollection($this->entities),
+            'id'        => $this->id,
+            'name'      => $this->name,
+            'builtin'   => $this->builtin,
+            'entities'  => new EntityCollection($this->entities),
         ];
     }
 }

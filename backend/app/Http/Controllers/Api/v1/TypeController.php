@@ -15,11 +15,10 @@ class TypeController extends Controller
     /**
      * Get all entity types
      *
-     * @queryParam page The page number. Example: 1
      */
     public function index(): TypeCollection
     {
-        return new TypeCollection(Type::paginate($this->perPage()));
+        return new TypeCollection(Type::all());
     }
 
     /**

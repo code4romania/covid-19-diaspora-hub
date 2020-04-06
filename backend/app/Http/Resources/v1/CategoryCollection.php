@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
-use App\Models\Category;
+use App\Http\Resources\v1\CategoryResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CategoryCollection extends ResourceCollection
@@ -12,7 +12,7 @@ class CategoryCollection extends ResourceCollection
      *
      * @var string
      */
-    public $collects = Category::class;
+    public $collects = CategoryResource::class;
 
     /**
      * Transform the resource collection into an array.
@@ -22,6 +22,7 @@ class CategoryCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return $this->collection->map->only(['id', 'name']);
+
+        return $this->collection->map->only(['id', 'name', 'builtin']);
     }
 }
