@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\v1\CategoryCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EntityResource extends JsonResource
@@ -18,7 +19,7 @@ class EntityResource extends JsonResource
             'name'        => $this->name,
             'description' => $this->description,
             'type'        => $this->type->name ?? null,
-            'categories'  => $this->categories->pluck('name'),
+            'categories'  => new CategoryCollection($this->categories),
 
             'location' => [
                 'address_line_1' => $this->address_line_1,

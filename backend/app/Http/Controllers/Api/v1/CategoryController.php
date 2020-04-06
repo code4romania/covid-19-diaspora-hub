@@ -14,12 +14,10 @@ final class CategoryController extends Controller
 {
     /**
      * Get all categories
-     *
-     * @queryParam page The page number. Example: 1
      */
     public function index(): CategoryCollection
     {
-        return new CategoryCollection(Category::paginate());
+        return new CategoryCollection(Category::all());
     }
 
     /**

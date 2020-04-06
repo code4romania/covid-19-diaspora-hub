@@ -4,9 +4,10 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\Type;
+use Illuminate\Database\Eloquent\Model;
 use Malhal\Geographical\Geographical;
 
-class Entity extends BaseModel
+class Entity extends Model
 {
     use Geographical;
 

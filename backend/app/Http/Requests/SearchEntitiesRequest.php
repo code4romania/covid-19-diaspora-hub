@@ -25,25 +25,16 @@ class SearchEntitiesRequest extends FormRequest
      */
     public function rules()
     {
-        $countries = collect(config('places.countries'))
-            ->map(fn ($country) => Str::lower($country));
-
         return [
-            'query'   => ['required', 'string', 'min:3'],
+            'lat'   => ['required', 'numeric', 'min:-180', 'max:180'],
+            'lng'   => ['required', 'numeric', 'min:-180', 'max:180'],
             'radius'  => ['required', 'integer', 'min:1', 'max:500'],
-            'country' => ['nullable', 'string', Rule::in($countries)],
         ];
     }
 
     public function prepareForValidation()
     {
-        $input = $this->only(['query', 'radius', 'country']);
-
-        if (isset($input['country'])) {
-            $input['country'] = Str::lower($input['country']);
-        } else {
-            $input['country'] = null;
-        }
+        $input = $this->only(['lat', 'lng', 'radius']);
 
         $input['radius'] = intval($input['radius'] ?? 100);
 
