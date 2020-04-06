@@ -19,7 +19,7 @@ class TypeController extends Controller
      */
     public function index(): TypeCollection
     {
-        return new TypeCollection(Type::paginate($this->perPage()));
+        return new TypeCollection(Type::paginate());
     }
 
     /**

@@ -22,7 +22,7 @@ class EntityController extends Controller
      */
     public function index(): EntityCollection
     {
-        return new EntityCollection(Entity::paginate($this->perPage()));
+        return new EntityCollection(Entity::paginate());
     }
 
     /**

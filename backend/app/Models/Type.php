@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use App\Models\Entity;
-use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Type extends BaseModel
 {
     public function entities()
     {

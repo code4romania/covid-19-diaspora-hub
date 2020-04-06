@@ -19,7 +19,7 @@ final class CategoryController extends Controller
      */
     public function index(): CategoryCollection
     {
-        return new CategoryCollection(Category::paginate($this->perPage()));
+        return new CategoryCollection(Category::paginate());
     }
 
     /**
