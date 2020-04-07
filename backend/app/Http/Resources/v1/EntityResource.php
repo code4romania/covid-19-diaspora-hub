@@ -14,19 +14,22 @@ class EntityResource extends JsonResource
      */
     public function toArray($request): array
     {
-        return [
+        $data = [
             'id'          => $this->id,
             'name'        => $this->name,
-            'type'        => $this->type,
             'description' => $this->description,
+            'type'        => $this->type->name ?? null,
             'categories'  => new CategoryCollection($this->categories),
 
             'location' => [
-                'country'   => $this->country,
-                'city'      => $this->city,
-                'address'   => $this->address,
-                'latitude'  => $this->latitude,
-                'longitude' => $this->longitude,
+                'address_line_1' => $this->address_line_1,
+                'address_line_2' => $this->address_line_2,
+                'city'           => $this->city,
+                'county'         => $this->county,
+                'postal_code'    => $this->postal_code,
+                'country'        => $this->country,
+                'latitude'       => $this->latitude,
+                'longitude'      => $this->longitude,
             ],
 
             'contact' => [
@@ -34,10 +37,12 @@ class EntityResource extends JsonResource
                 'phone' => $this->phone,
                 'url'   => $this->url,
             ],
-
-            'links' => [
-                'self' => route('api.v1.entities.show', $this),
-            ]
         ];
+
+        if ($this->distance) {
+            $data['distance'] = round($this->distance, 2);
+        }
+
+        return $data;
     }
 }

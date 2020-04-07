@@ -16,18 +16,28 @@ class CreateEntitiesTable extends Migration
         Schema::create('entities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type');
+
             $table->text('description')->nullable();
 
-            $table->text('address');
-            $table->string('city');
-            $table->string('country', 2);
+            $table->text('address_line_1')->nullable();
+            $table->text('address_line_2')->nullable();
+
+            $table->string('city')->nullable();
+            $table->string('county')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('country', 2)->nullable();
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
 
-            $table->string('email');
-            $table->string('phone');
-            $table->string('url');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('url')->nullable();
+
+            $table->foreignId('type_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->timestamps();
         });

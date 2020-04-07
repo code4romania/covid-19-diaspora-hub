@@ -1,0 +1,29 @@
+version: "3.2"
+
+services:
+  app:
+    build:
+      context: ./
+    container_name: "diaspora-hub"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 9000:9000
+
+  mariadb:
+    image: mariadb:10.4.12
+    container_name: "diaspora-hub-db"
+    volumes:
+      - mariadbdiaspora:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - TZ=Europe/Bucharest
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  mariadbdiaspora:
