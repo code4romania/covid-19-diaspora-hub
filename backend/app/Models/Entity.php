@@ -15,7 +15,6 @@ class Entity extends Model
 
     protected $with = [
         'type',
-        'categories',
     ];
 
     public function type()
@@ -31,5 +30,20 @@ class Entity extends Model
     public function getCountryNameAttribute()
     {
         return __("countries.{$this->country}");
+    }
+
+    public function getAddressAttribute()
+    {
+        $lines = [
+            [$this->address_line_1],
+            [$this->address_line_2],
+            [$this->postal_code, $this->city],
+            [$this->county, $this->country_name],
+        ];
+
+        return collect($lines)
+            ->map(fn ($line) => implode(', ', array_filter($line)))
+            ->filter()
+            ->toArray();
     }
 }
