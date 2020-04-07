@@ -28,7 +28,7 @@ const HelpForm = lazy(() => import("./components/HelpForm"));
 
 const Logo = () => (
   <Link to="/">
-    <img width="178" height="32" alt="DiasporaHub" src={LogoSvg} />
+    <img width="148" height="32" alt="DiasporaHub" src={LogoSvg} />
   </Link>
 );
 

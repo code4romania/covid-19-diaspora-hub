@@ -17,26 +17,22 @@ const UsefulContacts = () => {
       {contacts.map((contact, index) => (
         <div key={index} className="contact-wrapper ">
           <SearchResultListItem title={contact.name}>
-            <div className="contact-details">
-              <span>
-                <b>Website: </b>
-                <a
-                  href={contact.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {contact.website}
-                </a>
-              </span>
-              <span>
-                <b>Telefon:</b>
-                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-              </span>
-              <span>
-                <b>Email:</b>{" "}
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </span>
-            </div>
+            <address>
+              <b>Website: </b>
+              <a
+                href={contact.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {contact.website}
+              </a>
+              <br />
+              <b>Telefon: </b>
+              <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+              <br />
+              <b>Email: </b>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </address>
           </SearchResultListItem>
         </div>
       ))}

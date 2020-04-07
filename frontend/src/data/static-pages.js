@@ -6,16 +6,7 @@ export default [
     doc_id: 101,
     active: true,
     display_order: 1,
-    content: [
-      {
-        title: "Ai nevoie de ajutor?",
-        display_order: 1,
-        slug: "/",
-        page: `
-        Completează formularul de mai jos pentru a te putea îndruma ușor
-        `
-      }
-    ]
+    content: []
   },
   {
     title: "Informații utile",

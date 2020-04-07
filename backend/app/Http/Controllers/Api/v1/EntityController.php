@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchEntitiesRequest;
 use App\Http\Resources\v1\EntityCollection;
 use App\Http\Resources\v1\EntityResource;
+use App\Http\Resources\v1\CategoryCollection;
 use App\Models\Entity;
+use App\Models\Category;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -43,14 +45,14 @@ class EntityController extends Controller
      * @queryParam lng required Longitude. Example: -94.2354
      * @queryParam radius Show results only this many km away from the query coordinates. Defaults to 100. Example: 100
      */
-    public function search(SearchEntitiesRequest $request): AnonymousResourceCollection
+    public function search(SearchEntitiesRequest $request): CategoryCollection
     {
         extract($request->validated());
 
-        return EntityResource::collection(
-            Entity::geofence($lat, $lng, 0, $radius)
-                ->orderBy('distance', 'ASC')
-                ->get()
+        return new CategoryCollection(
+            Category::whereHas('entities', function ($query) use ($lat, $lng, $radius){
+                $query->geofence($lat, $lng, 0, $radius)->orderBy('distance', 'ASC');
+            })->get()
         );
     }
 }

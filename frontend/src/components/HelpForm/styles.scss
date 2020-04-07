@@ -1,3 +1,21 @@
-.info {
-  margin-bottom: 30px;
+.accordion-wrapper {
+  margin-top: 30px;
+}
+
+.results-wrapper {
+  margin-bottom: 25px;
+}
+
+.ap-input {
+  height: 50px;
+}
+
+.result-msg {
+  text-align: center;
+  color: #888;
+  font-weight: 900;
+}
+
+.result-msg__error {
+  color: #d33333;
 }

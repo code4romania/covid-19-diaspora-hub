@@ -23,6 +23,6 @@ class CategoryCollection extends ResourceCollection
     public function toArray($request)
     {
 
-        return $this->collection->map->only(['id', 'name', 'builtin']);
+        return $this->collection->map->only(['id', 'name', 'builtin', 'entities']);
     }
 }

@@ -19,7 +19,6 @@ class EntityResource extends JsonResource
             'name'        => $this->name,
             'description' => $this->description,
             'type'        => $this->type->name ?? null,
-            'categories'  => new CategoryCollection($this->categories),
 
             'location' => [
                 'address_line_1' => $this->address_line_1,
