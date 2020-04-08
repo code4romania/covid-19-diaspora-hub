@@ -43,7 +43,7 @@ return [
     |
     */
 
-    'default' => 'basic',
+    'default' => 'local',
 
     /*
     |--------------------------------------------------------------------------
@@ -82,6 +82,7 @@ return [
 
         // Deployment is done but not live yet (before symlink)
         'ready' => [
+            'artisan:command:link',
             'artisan:storage:link',
             'artisan:view:clear',
             'artisan:cache:clear',
@@ -165,7 +166,7 @@ return [
     */
 
     'include' => [
-        //
+        'recipes/overrides.php',
     ],
 
     /*
