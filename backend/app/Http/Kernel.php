@@ -40,6 +40,8 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
+            'cache.headers:public;etag;max_age=600',
+            \App\Http\Middleware\RedirectTrailingSlash::class,
             \App\Http\Middleware\JsonMiddleware::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
