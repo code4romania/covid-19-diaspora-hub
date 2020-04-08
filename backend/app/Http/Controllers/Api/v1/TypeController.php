@@ -14,7 +14,6 @@ class TypeController extends Controller
 {
     /**
      * Get all entity types
-     *
      */
     public function index(): TypeCollection
     {

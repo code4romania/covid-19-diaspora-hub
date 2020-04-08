@@ -21,7 +21,7 @@ class EntityResource extends JsonResource
             'categories'  => new CategoryCollection($this->categories), //$this->categories->pluck('name'),
 
             'address'     => $this->address,
-            'latlng'      => $this->latitude . ',' . $this->longitude,
+            'latlng'      => $this->lat_lng,
             'distance'    => $this->distance ? round($this->distance, 2) : null,
 
             'contact' => [

@@ -48,6 +48,15 @@ class Entity extends Model
             ->toArray();
     }
 
+    public function getLatLngAttribute(): ?string
+    {
+        if (is_null($this->latitude) || is_null($this->longitude)) {
+            return null;
+        }
+
+        return $this->latitude . ',' . $this->longitude;
+    }
+
     public function scopeWithoutLocation(Builder $query): Builder
     {
         return $query->whereNull('latitude')->orWhereNull('longitude');

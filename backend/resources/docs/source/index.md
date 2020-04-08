@@ -134,6 +134,187 @@ curl -X GET \
 #Entities
 
 
+<!-- START_9c457f0f1bb03bc63b0dbafb340f9828 -->
+## Get all entities without a location
+
+> Example request:
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/entities/withoutLocation"
+);
+
+
+fetch(url, {
+    method: "GET",
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get('http://localhost/api/v1/entities/withoutLocation');
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://localhost/api/v1/entities/withoutLocation'
+response = requests.request('GET', url)
+response.json()
+```
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/entities/withoutLocation" 
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Sava-Tanase",
+            "description": "Fie! Bătu palmă în palmă cu negustorul. Tocmeala se făcuse. Negustorul plăti şi luă pe Neghiniţă, vândut de bunăvoie. Negustorul plecă. Neghiniţă strigă moşului: - Moşule, moşule, ai fost să n-ai copii, iar biată babă, da! Împăratul era la mare şi la băutură. Bietul pribeag stătu pe gânduri, în mijlocul unui oraş mare, mare şi zise: - Ei, ei, ce n-ar.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 7,
+                    "name": "Minus in et ad saepe.",
+                    "builtin": false
+                }
+            ],
+            "address": [
+                "B-dul. Traian 1B",
+                "869375, Milișăuți",
+                "Caraș-Severin, Kuwait"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "xbratu@example.com",
+                "phone": "0718377594",
+                "url": "http:\/\/www.bratu.org\/"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Sima, Cosma and Marinescu",
+            "description": "Bătrâna simţi pe mână o picătura caldă. - Iacătă-mă şi pe mine!… Biata femeie făcu nişte ochi mari cât toate zilele şi se miră toată de ce vedea se minuna şi întreba pe Neghiniţă: - Sufletele se dăruiesc Domnului şi se răsti cât putu: - Neghiniţă, ci tacă-ţi gura şi vin să te văd! Şi.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 5,
+                    "name": "Eum minus aut sapiente dolorem tenetur.",
+                    "builtin": false
+                }
+            ],
+            "address": [
+                "Aleea Herculane 6",
+                "961687, Mun. Zlatna",
+                "Argeș, Central African Republic"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "lucentiu12@example.net",
+                "phone": "0341952331",
+                "url": "http:\/\/manole.com\/numquam-est-veniam-et-ipsum-laudantium"
+            }
+        },
+        {
+            "id": 19,
+            "name": "Manole, Sava and Ganea",
+            "description": "Bătrâna pierdu sfiala şi răbdarea şi se traseră de bărbile lungi. - Nu căta că-s mititel. Calul nu e aşa deloc. Eu mă satur din fum. Până acum am mâncat la mese împărăteşti fără să ştie nimeni. Şi ce-am mai râs când ceilalţi tremurau înaintea.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Eum cupiditate est doloremque placeat nesciunt sit.",
+                    "builtin": false
+                },
+                {
+                    "id": 10,
+                    "name": "Odit alias porro aspernatur aut maiores perspiciatis.",
+                    "builtin": true
+                }
+            ],
+            "address": [
+                "B-dul. Decebal 743",
+                "353386, Scornicești",
+                "Neamț, Cook Islands"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "voicu.gheorghita@example.org",
+                "phone": "0783288295",
+                "url": "http:\/\/burlacu.biz\/et-ut-eveniet-distinctio-doloremque-quos"
+            }
+        },
+        {
+            "id": 30,
+            "name": "Ispas PLC",
+            "description": "Şi într-o clipă intră în urechea cărturarului care zicea că ştie măruntaiele omului şi leacurile bolilor. Ăsta se gândea la o cucoană frumoasă, că altul se gândea cam ce linguşeală să cârpească împăratului, altul că bine e să fii împărat, altul că bine e să fii împărat, altul că împăratul e om ca toţi oamenii, da’ nu se mai isprăveau până după miezul nopţii.\" În sfârşit, ce-i veni lui.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 4,
+                    "name": "Aut in qui repellendus tenetur.",
+                    "builtin": false
+                },
+                {
+                    "id": 5,
+                    "name": "Eum minus aut sapiente dolorem tenetur.",
+                    "builtin": false
+                },
+                {
+                    "id": 7,
+                    "name": "Minus in et ad saepe.",
+                    "builtin": false
+                },
+                {
+                    "id": 8,
+                    "name": "Recusandae ratione qui aliquid ratione et quo nostrum.",
+                    "builtin": false
+                },
+                {
+                    "id": 9,
+                    "name": "Omnis beatae accusamus harum nihil aspernatur sed.",
+                    "builtin": false
+                }
+            ],
+            "address": [
+                "P-ța Ion Creangă 79",
+                "892007, Mun. Arad",
+                "Tulcea, Armenia"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "gmoraru@example.com",
+                "phone": "0245735033",
+                "url": "http:\/\/ganea.com\/est-quaerat-maxime-velit-nulla-et-amet"
+            }
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/entities/withoutLocation`
+
+
+<!-- END_9c457f0f1bb03bc63b0dbafb340f9828 -->
+
 <!-- START_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
 ## Search for entities
 

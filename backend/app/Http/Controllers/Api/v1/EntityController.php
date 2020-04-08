@@ -16,8 +16,6 @@ class EntityController extends Controller
 {
     /**
      * Get all entities
-     *
-     * @queryParam page The page number. Example: 1
      */
     public function index(): EntityCollection
     {
