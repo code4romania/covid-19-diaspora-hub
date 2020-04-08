@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('entities')->name('entities.')->group(function () {
     // Route::get('/', [EntityController::class, 'index'])->name('index');
     // Route::get('{entity}', [EntityController::class, 'show'])->name('show')->where('entity', '[0-9]+');
+
+    Route::get('/withoutLocation', [EntityController::class, 'withoutLocation'])->name('withoutLocation');
     Route::get('search', [EntityController::class, 'search'])->name('search');
 });
 

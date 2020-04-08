@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\Type;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Malhal\Geographical\Geographical;
 
@@ -45,5 +46,10 @@ class Entity extends Model
             ->map(fn ($line) => implode(', ', array_filter($line)))
             ->filter()
             ->toArray();
+    }
+
+    public function scopeWithoutLocation(Builder $query): Builder
+    {
+        return $query->whereNull('latitude')->orWhereNull('longitude');
     }
 }

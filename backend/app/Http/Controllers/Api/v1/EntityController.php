@@ -25,6 +25,14 @@ class EntityController extends Controller
     }
 
     /**
+     * Get all entities without a location
+     */
+    public function withoutLocation(): EntityCollection
+    {
+        return new EntityCollection(Entity::withoutLocation()->get());
+    }
+
+    /**
      * Get a single entity
      *
      * @urlParam entity required The ID of the entity. Example: 2
