@@ -31,4 +31,5 @@ return [
         'contact' => 'Contact',
     ],
 
+    'others' => 'Others',
 ];

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Nova\Metrics\EntityPerCategory;
+use App\Nova\Metrics\EntityPerDay;
+use App\Nova\Metrics\EntityPerType;
 use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -54,7 +56,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            (new EntityPerType)->width('1/2'),
+            (new EntityPerCategory)->width('1/2'),
+            (new EntityPerDay)->width('full'),
         ];
     }
 
