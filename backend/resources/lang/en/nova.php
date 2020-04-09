@@ -24,6 +24,7 @@ return [
         'postal_code'    => 'Postal Code',
         'latitude'       => 'Latitude',
         'longitude'      => 'Longitude',
+        'builtin'        => 'Builtin',
     ],
 
     'panels' => [
@@ -31,4 +32,5 @@ return [
         'contact' => 'Contact',
     ],
 
+    'others' => 'Others',
 ];

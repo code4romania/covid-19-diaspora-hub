@@ -11,6 +11,10 @@ class Category extends Model
         'builtin' => 'boolean',
     ];
 
+    protected $withCount = [
+        'entities'
+    ];
+
     public function entities()
     {
         return $this->belongsToMany(Entity::class);
