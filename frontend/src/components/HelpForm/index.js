@@ -3,7 +3,7 @@ import {
   Hero,
   SocialsShare,
   SearchResultListItem,
-  Form,
+  Form
 } from "@code4ro/taskforce-fe-components";
 import { askForHelpForm } from "../../data/ask-for-help-form";
 
@@ -19,9 +19,9 @@ const HelpForm = () => {
     );
     const { data } = await apiResult.json();
 
-    return data.map((category) => ({
+    return data.map(category => ({
       label: category.name,
-      value: category.id,
+      value: category.id
     }));
   }, []);
 
@@ -33,17 +33,17 @@ const HelpForm = () => {
     fetchData();
   }, [fetchCategory]);
 
-  const evaluate = async (formData) => {
+  const evaluate = async formData => {
     const { lat, lng, countryCode } = formData[1];
     const categories = formData[5];
     const url = new URL(`${process.env.REACT_APP_API_URL}/entities/search`);
     const urlSearchParams = new URLSearchParams({
       lat,
       lng,
-      country: countryCode,
+      country: countryCode
     });
     let categoriesString = "";
-    categories.forEach((categoryId) => {
+    categories.forEach(categoryId => {
       categoriesString += `${categoryId}&categories[]=`;
     });
     urlSearchParams.append("categories[]", categoriesString);
@@ -77,8 +77,8 @@ const HelpForm = () => {
               <br />
               <b>Tip de ajutor:</b>
               <ul>
-                {entity.categories.map((category) => (
-                  <li>{category.name}</li>
+                {entity.categories.map((category, index) => (
+                  <li key={index}>{category.name}</li>
                 ))}
               </ul>
               <address>
@@ -86,7 +86,7 @@ const HelpForm = () => {
                 {entity.address && (
                   <>
                     <b>Adresa:</b>
-                    {entity.address.map((address) => (
+                    {entity.address.map(address => (
                       <>
                         <br />
                         {address}

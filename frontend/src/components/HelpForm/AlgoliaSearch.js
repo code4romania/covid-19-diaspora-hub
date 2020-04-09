@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import AlgoliaPlaces from "algolia-places-react";
 import { ListHeader } from "@code4ro/taskforce-fe-components";
 import { algoliaConfig } from "../../config/algolia";
-export const AlgoliaSearch = ({ question, onAnswer, currentResponse }) => {
+export const AlgoliaSearch = ({ question, onAnswer }) => {
   const onChange = ({ suggestion }) => {
     const answer = {
       questionId: question.questionId,
-      value: { countryCode: suggestion.countryCode, ...suggestion.latlng },
+      value: { countryCode: suggestion.countryCode, ...suggestion.latlng }
     };
     onAnswer(answer);
   };
@@ -17,7 +17,7 @@ export const AlgoliaSearch = ({ question, onAnswer, currentResponse }) => {
       <AlgoliaPlaces
         placeholder="Completeaza orasul sau adresa ta aici"
         options={algoliaConfig}
-        onChange={(searchResult) => onChange(searchResult)}
+        onChange={searchResult => onChange(searchResult)}
         // onLimit={() => setErrorMessage("Ne pare rau, a aparut o problema.")}
         // onError={() => setErrorMessage("Ne pare rau, a aparut o problema.")}
       />
@@ -28,8 +28,8 @@ export const AlgoliaSearch = ({ question, onAnswer, currentResponse }) => {
 AlgoliaSearch.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
-    questionText: PropTypes.string.isRequired,
+    questionText: PropTypes.string.isRequired
   }),
   onAnswer: PropTypes.func,
-  currentResponse: PropTypes.number,
+  currentResponse: PropTypes.number
 };
