@@ -50,6 +50,8 @@ class Entity extends Resource
     public static $search = [
         'name',
         'description',
+        'city',
+        'country',
     ];
 
     /**
@@ -175,6 +177,7 @@ class Entity extends Resource
             __('nova.panels.address'),
             [
                 Place::make(__('nova.fields.address_line_1'), 'address_line_1')
+                    ->hideFromIndex()
                     ->state('county'),
 
                 Text::make(__('nova.fields.address_line_2'), 'address_line_2')
