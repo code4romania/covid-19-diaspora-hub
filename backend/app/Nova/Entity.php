@@ -50,6 +50,8 @@ class Entity extends Resource
     public static $search = [
         'name',
         'description',
+        'city',
+        'country',
     ];
 
     /**
@@ -91,7 +93,7 @@ class Entity extends Resource
                 ->rules('required', 'max:500')
                 ->alwaysShow(),
 
-            BelongsTo::make(__('nova.Type'), 'type', Type::class),
+            BelongsTo::make(__('nova.type'), 'type', Type::class),
 
             BelongsToManyField::make(__('nova.categories'), 'categories', Category::class)
                 ->rules('required'),
@@ -175,6 +177,7 @@ class Entity extends Resource
             __('nova.panels.address'),
             [
                 Place::make(__('nova.fields.address_line_1'), 'address_line_1')
+                    ->hideFromIndex()
                     ->state('county'),
 
                 Text::make(__('nova.fields.address_line_2'), 'address_line_2')

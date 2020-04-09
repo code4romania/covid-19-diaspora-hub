@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 
 class Type extends Resource
@@ -62,9 +63,14 @@ class Type extends Resource
                 ->sortable()
                 ->hideFromIndex(),
 
-            Text::make('Name')
+            Text::make(__('nova.fields.name'), 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
+
+            Number::make(__('nova.entities'), 'entities_count')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->sortable(),
         ];
     }
 
