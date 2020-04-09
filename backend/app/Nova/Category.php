@@ -63,11 +63,11 @@ class Category extends Resource
                 ->sortable()
                 ->hideFromIndex(),
 
-            Text::make('Name')
+            Text::make(__('nova.fields.name'), 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Boolean::make('Builtin')
+            Boolean::make(__('nova.fields.builtin'), 'builtin'),
         ];
     }
 

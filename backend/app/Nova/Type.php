@@ -62,7 +62,7 @@ class Type extends Resource
                 ->sortable()
                 ->hideFromIndex(),
 
-            Text::make('Name')
+            Text::make(__('nova.fields.name'), 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
         ];

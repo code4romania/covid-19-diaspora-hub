@@ -91,7 +91,7 @@ class Entity extends Resource
                 ->rules('required', 'max:500')
                 ->alwaysShow(),
 
-            BelongsTo::make(__('nova.Type'), 'type', Type::class),
+            BelongsTo::make(__('nova.type'), 'type', Type::class),
 
             BelongsToManyField::make(__('nova.categories'), 'categories', Category::class)
                 ->rules('required'),
