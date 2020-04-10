@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\v1\CategoryController;
+use App\Http\Controllers\Api\v1\DiplomaticMissionController;
 use App\Http\Controllers\Api\v1\EntityController;
 use App\Http\Controllers\Api\v1\TypeController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,11 @@ Route::prefix('entities')->name('entities.')->group(function () {
 Route::prefix('types')->name('types.')->group(function () {
     Route::get('/', [TypeController::class, 'index'])->name('index');
     Route::get('{type}', [TypeController::class, 'show'])->name('show')->where('type', '[0-9]+');
+});
+
+Route::prefix('diplomatic-missions')->name('diplomatic-missions.')->group(function () {
+    Route::get('/', [DiplomaticMissionController::class, 'index'])->name('index');
+    // Route::get('{type}', [DiplomaticMissionController::class, 'show'])->name('show')->where('type', '[0-9]+');
 });
 
 Route::prefix('categories')->name('categories.')->group(function () {
