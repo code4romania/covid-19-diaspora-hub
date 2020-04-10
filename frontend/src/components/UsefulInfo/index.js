@@ -1,30 +1,13 @@
 import React from "react";
-import {
-  Hero,
-  SearchResultListItem,
-  SocialsShare
-} from "@code4ro/taskforce-fe-components";
-import usefulInfoList from "../../data/useful-info";
-import "./styles.scss";
+import { Hero, SocialsShare } from "@code4ro/taskforce-fe-components";
+import usefulInfo from "../../data/useful-info";
 
 const UsefulInfo = () => {
   return (
     <>
-      <Hero title="Informații utile pentru românii din diaspora" />
+      <Hero title={usefulInfo.title} />
       <SocialsShare currentPage="https://diasporahub.ro" />
-
-      {usefulInfoList.map(({ id, title, date, overview }) => (
-        <div key={`useful_info_${id}`} className="useful_info-wrapper">
-          <SearchResultListItem
-            date={date}
-            title={title}
-            readMoreText={"Citeste mai mult"}
-            readMoreLink={`/informatii-utile/${id}`}
-          >
-            <p className="overview">{overview}</p>
-          </SearchResultListItem>
-        </div>
-      ))}
+      <div dangerouslySetInnerHTML={{ __html: usefulInfo.content }} />
     </>
   );
 };
