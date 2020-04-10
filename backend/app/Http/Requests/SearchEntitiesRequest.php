@@ -26,17 +26,21 @@ class SearchEntitiesRequest extends FormRequest
     public function rules()
     {
         return [
-            'lat'   => ['required', 'numeric', 'min:-180', 'max:180'],
-            'lng'   => ['required', 'numeric', 'min:-180', 'max:180'],
-            'radius'  => ['required', 'integer', 'min:1', 'max:500'],
+            'lat'          => ['required', 'numeric', 'min:-90', 'max:90'],
+            'lng'          => ['required', 'numeric', 'min:-180', 'max:180'],
+            'radius'       => ['required', 'integer', 'min:1', 'max:500'],
+            'country'      => ['required', 'size:2'],
+            'categories'   => ['required', 'array'],
+            'categories.*' => ['required', 'exists:categories,id'],
         ];
     }
 
     public function prepareForValidation()
     {
-        $input = $this->only(['lat', 'lng', 'radius']);
+        $input = $this->only(['lat', 'lng', 'radius', 'country', 'categories']);
 
-        $input['radius'] = intval($input['radius'] ?? 100);
+        $input['radius'] = intval($input['radius'] ?? config('places.defaultSearchRadius'));
+        $input['categories'] ??= [];
 
         $this->replace($input);
     }
@@ -47,8 +51,10 @@ class SearchEntitiesRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'radius.min' => __('api.validate.radius.min'),
-            'radius.max' => __('api.validate.radius.max'),
+            'radius.min'   => __('api.validate.radius.min'),
+            'radius.max'   => __('api.validate.radius.max'),
+            'categories.*' => __('api.validate.categories'),
+            'country.size' => __('api.validate.country'),
         ];
     }
 }

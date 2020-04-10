@@ -131,15 +131,17 @@ curl -X GET \
 
 <!-- END_80420c095ed96da032c9eb419d7d6e2d -->
 
-<!-- START_2378770b4f57b93f810abda7c44614b8 -->
-## Get a single category
-Retrieves a collection of entities that belong to the current category
+#Entities
+
+
+<!-- START_9c457f0f1bb03bc63b0dbafb340f9828 -->
+## Get all entities without a location
 
 > Example request:
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/v1/categories/5"
+    "http://localhost/api/v1/entities/withoutLocation"
 );
 
 
@@ -153,7 +155,7 @@ fetch(url, {
 ```php
 
 $client = new \GuzzleHttp\Client();
-$response = $client->get('http://localhost/api/v1/categories/5');
+$response = $client->get('http://localhost/api/v1/entities/withoutLocation');
 $body = $response->getBody();
 print_r(json_decode((string) $body));
 ```
@@ -162,124 +164,14 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://localhost/api/v1/categories/5'
+url = 'http://localhost/api/v1/entities/withoutLocation'
 response = requests.request('GET', url)
 response.json()
 ```
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/categories/5" 
-```
-
-
-> Example response (200):
-
-```json
-{
-    "data": {
-        "id": 5,
-        "name": "Eum minus aut sapiente dolorem tenetur.",
-        "builtin": false,
-        "entities": [
-            {
-                "id": 3,
-                "name": "Bogdan, Nedelcu and Toth",
-                "country": "SI"
-            },
-            {
-                "id": 4,
-                "name": "Stoian, Peter and Ichim",
-                "country": "TK"
-            },
-            {
-                "id": 5,
-                "name": "Sima, Cosma and Marinescu",
-                "country": "CF"
-            },
-            {
-                "id": 8,
-                "name": "Szekely and Sons",
-                "country": "LU"
-            },
-            {
-                "id": 10,
-                "name": "Munteanu-Zaharia",
-                "country": "IE"
-            }
-        ]
-    }
-}
-```
-
-### HTTP Request
-`GET api/v1/categories/{category}`
-
-#### URL Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -------
-    `category` |  required  | The ID of the category.
-
-<!-- END_2378770b4f57b93f810abda7c44614b8 -->
-
-#Entities
-
-
-<!-- START_4288e7337688d08ee1ca084a9b8a3b76 -->
-## Get all entities
-
-> Example request:
-
-```javascript
-const url = new URL(
-    "http://localhost/api/v1/entities"
-);
-
-let params = {
-    "page": "1",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-
-fetch(url, {
-    method: "GET",
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://localhost/api/v1/entities',
-    [
-        'query' => [
-            'page'=> '1',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://localhost/api/v1/entities'
-params = {
-  'page': '1',
-}
-response = requests.request('GET', url, params=params)
-response.json()
-```
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/v1/entities?page=1" 
+    -G "http://localhost/api/v1/entities/withoutLocation" 
 ```
 
 
@@ -291,144 +183,137 @@ curl -X GET \
         {
             "id": 1,
             "name": "Sava-Tanase",
-            "country": "KW"
-        },
-        {
-            "id": 2,
-            "name": "David, Moise and Grigoras",
-            "country": "EG"
-        },
-        {
-            "id": 3,
-            "name": "Bogdan, Nedelcu and Toth",
-            "country": "SI"
-        },
-        {
-            "id": 4,
-            "name": "Stoian, Peter and Ichim",
-            "country": "TK"
+            "description": "Fie! Bătu palmă în palmă cu negustorul. Tocmeala se făcuse. Negustorul plăti şi luă pe Neghiniţă, vândut de bunăvoie. Negustorul plecă. Neghiniţă strigă moşului: - Moşule, moşule, ai fost să n-ai copii, iar biată babă, da! Împăratul era la mare şi la băutură. Bietul pribeag stătu pe gânduri, în mijlocul unui oraş mare, mare şi zise: - Ei, ei, ce n-ar.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 7,
+                    "name": "Minus in et ad saepe.",
+                    "builtin": false
+                }
+            ],
+            "address": [
+                "B-dul. Traian 1B",
+                "869375, Milișăuți",
+                "Caraș-Severin, Kuwait"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "xbratu@example.com",
+                "phone": "0718377594",
+                "url": "http:\/\/www.bratu.org\/"
+            }
         },
         {
             "id": 5,
             "name": "Sima, Cosma and Marinescu",
-            "country": "CF"
+            "description": "Bătrâna simţi pe mână o picătura caldă. - Iacătă-mă şi pe mine!… Biata femeie făcu nişte ochi mari cât toate zilele şi se miră toată de ce vedea se minuna şi întreba pe Neghiniţă: - Sufletele se dăruiesc Domnului şi se răsti cât putu: - Neghiniţă, ci tacă-ţi gura şi vin să te văd! Şi.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 5,
+                    "name": "Eum minus aut sapiente dolorem tenetur.",
+                    "builtin": false
+                }
+            ],
+            "address": [
+                "Aleea Herculane 6",
+                "961687, Mun. Zlatna",
+                "Argeș, Central African Republic"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "lucentiu12@example.net",
+                "phone": "0341952331",
+                "url": "http:\/\/manole.com\/numquam-est-veniam-et-ipsum-laudantium"
+            }
+        },
+        {
+            "id": 19,
+            "name": "Manole, Sava and Ganea",
+            "description": "Bătrâna pierdu sfiala şi răbdarea şi se traseră de bărbile lungi. - Nu căta că-s mititel. Calul nu e aşa deloc. Eu mă satur din fum. Până acum am mâncat la mese împărăteşti fără să ştie nimeni. Şi ce-am mai râs când ceilalţi tremurau înaintea.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Eum cupiditate est doloremque placeat nesciunt sit.",
+                    "builtin": false
+                },
+                {
+                    "id": 10,
+                    "name": "Odit alias porro aspernatur aut maiores perspiciatis.",
+                    "builtin": true
+                }
+            ],
+            "address": [
+                "B-dul. Decebal 743",
+                "353386, Scornicești",
+                "Neamț, Cook Islands"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "voicu.gheorghita@example.org",
+                "phone": "0783288295",
+                "url": "http:\/\/burlacu.biz\/et-ut-eveniet-distinctio-doloremque-quos"
+            }
+        },
+        {
+            "id": 30,
+            "name": "Ispas PLC",
+            "description": "Şi într-o clipă intră în urechea cărturarului care zicea că ştie măruntaiele omului şi leacurile bolilor. Ăsta se gândea la o cucoană frumoasă, că altul se gândea cam ce linguşeală să cârpească împăratului, altul că bine e să fii împărat, altul că bine e să fii împărat, altul că împăratul e om ca toţi oamenii, da’ nu se mai isprăveau până după miezul nopţii.\" În sfârşit, ce-i veni lui.",
+            "type": "Repellendus tempore impedit ea beatae repellat.",
+            "categories": [
+                {
+                    "id": 4,
+                    "name": "Aut in qui repellendus tenetur.",
+                    "builtin": false
+                },
+                {
+                    "id": 5,
+                    "name": "Eum minus aut sapiente dolorem tenetur.",
+                    "builtin": false
+                },
+                {
+                    "id": 7,
+                    "name": "Minus in et ad saepe.",
+                    "builtin": false
+                },
+                {
+                    "id": 8,
+                    "name": "Recusandae ratione qui aliquid ratione et quo nostrum.",
+                    "builtin": false
+                },
+                {
+                    "id": 9,
+                    "name": "Omnis beatae accusamus harum nihil aspernatur sed.",
+                    "builtin": false
+                }
+            ],
+            "address": [
+                "P-ța Ion Creangă 79",
+                "892007, Mun. Arad",
+                "Tulcea, Armenia"
+            ],
+            "latlng": null,
+            "distance": null,
+            "contact": {
+                "email": "gmoraru@example.com",
+                "phone": "0245735033",
+                "url": "http:\/\/ganea.com\/est-quaerat-maxime-velit-nulla-et-amet"
+            }
         }
     ]
 }
 ```
 
 ### HTTP Request
-`GET api/v1/entities`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `page` |  optional  | The page number.
-
-<!-- END_4288e7337688d08ee1ca084a9b8a3b76 -->
-
-<!-- START_a1414f1a639a9d59798dede94d307873 -->
-## Get a single entity
-
-> Example request:
-
-```javascript
-const url = new URL(
-    "http://localhost/api/v1/entities/2"
-);
+`GET api/v1/entities/withoutLocation`
 
 
-fetch(url, {
-    method: "GET",
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get('http://localhost/api/v1/entities/2');
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://localhost/api/v1/entities/2'
-response = requests.request('GET', url)
-response.json()
-```
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/v1/entities/2" 
-```
-
-
-> Example response (200):
-
-```json
-{
-    "data": {
-        "id": 2,
-        "name": "David, Moise and Grigoras",
-        "description": "Ce bucurie pe unchiaşul ei. Şi unchiaşul, ba la pădure, ba la arie, fără bici, fără nimic. Unchiaşul, minunat, îl duse la arie. Cum ajunse, Neghiniţă sări pe-un cal şi începu să strige din toate puterile în urechea împărătesei şi-i aflase gândul: \"Că ce bine-ar fi să mai facă vreo drăcie. Îi intră în urechea.",
-        "type": "Cupiditate quia dolor consequatur et cum et delectus voluptatem.",
-        "categories": [
-            {
-                "id": 2,
-                "name": "Qui qui pariatur labore dolore.",
-                "builtin": false
-            },
-            {
-                "id": 3,
-                "name": "Ullam earum impedit dolores nostrum molestiae laborum praesentium facilis.",
-                "builtin": false
-            },
-            {
-                "id": 6,
-                "name": "Enim autem ipsam rem dolorem a.",
-                "builtin": false
-            },
-            {
-                "id": 10,
-                "name": "Odit alias porro aspernatur aut maiores perspiciatis.",
-                "builtin": true
-            }
-        ],
-        "location": {
-            "address_line_1": "P-ța Mihai Viteazul 2B",
-            "address_line_2": null,
-            "city": "Pantelimon",
-            "county": "Suceava",
-            "postal_code": "921336",
-            "country": "EG",
-            "latitude": -81.607544,
-            "longitude": -80.054887
-        },
-        "contact": {
-            "email": "vpetrea@example.net",
-            "phone": "0774661130",
-            "url": "http:\/\/www.munteanu.com\/maxime-modi-sunt-cum-molestiae"
-        }
-    }
-}
-```
-
-### HTTP Request
-`GET api/v1/entities/{entity}`
-
-#### URL Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -------
-    `entity` |  required  | The ID of the entity.
-
-<!-- END_a1414f1a639a9d59798dede94d307873 -->
+<!-- END_9c457f0f1bb03bc63b0dbafb340f9828 -->
 
 <!-- START_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
 ## Search for entities
@@ -441,8 +326,10 @@ const url = new URL(
 );
 
 let params = {
+    "categories[]": "8",
     "lat": "85.766782",
     "lng": "-94.2354",
+    "country": "BW",
     "radius": "100",
 };
 Object.keys(params)
@@ -463,8 +350,10 @@ $response = $client->get(
     'http://localhost/api/v1/entities/search',
     [
         'query' => [
+            'categories[]'=> '8',
             'lat'=> '85.766782',
             'lng'=> '-94.2354',
+            'country'=> 'BW',
             'radius'=> '100',
         ],
     ]
@@ -479,8 +368,10 @@ import json
 
 url = 'http://localhost/api/v1/entities/search'
 params = {
+  'categories[]': '8',
   'lat': '85.766782',
   'lng': '-94.2354',
+  'country': 'BW',
   'radius': '100',
 }
 response = requests.request('GET', url, params=params)
@@ -489,7 +380,7 @@ response.json()
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/v1/entities/search?lat=85.766782&lng=-94.2354&radius=100" 
+    -G "http://localhost/api/v1/entities/search?categories[]=8&lat=85.766782&lng=-94.2354&country=BW&radius=100" 
 ```
 
 
@@ -515,51 +406,18 @@ curl -X GET \
                     "builtin": false
                 }
             ],
-            "location": {
-                "address_line_1": "Aleea Florilor 60",
-                "address_line_2": null,
-                "city": "Fierbinți-Târg",
-                "county": "Olt",
-                "postal_code": "206993",
-                "country": "BW",
-                "latitude": 85.766782,
-                "longitude": -99.968812
-            },
+            "address": [
+                "Aleea Florilor 60",
+                "206993, Fierbinți-Târg",
+                "Olt, Botswana"
+            ],
+            "latlng": "85.766782,-99.968812",
+            "distance": 47.04,
             "contact": {
                 "email": "silvana38@example.com",
                 "phone": "0731559679",
                 "url": "https:\/\/www.pintilie.com\/accusantium-sit-aliquam-possimus-perferendis-aut-aut"
-            },
-            "distance": 47.04
-        },
-        {
-            "id": 475,
-            "name": "Necula-Ursu",
-            "description": "Împărate, zise împărăteasa, zău aşa, ghiceşte-mi şi mie un gând. - Să nu fie decât adevărul pe lume! - Ferit-a Dumnezeu, măria-ta, fără învăţaţi cine să mintă lumea? - Să te sărut, că-mi umpluşi casa cu dragoste când îmi ziseşi mamă. - Încet, mamă, încet, că mă striveşti, zise Neghiniţă. - Să vedem, răspunse împăratul. Împărăteasa se gândi să ducă împăratului aşa minune. - Un împărat dacă n-a şti el de la rădăcină? Şi bătrâna începu să se închine. - Bine, mătuşă, bine, da’ de unde şi.",
-            "type": "Cupiditate quia dolor consequatur et cum et delectus voluptatem.",
-            "categories": [
-                {
-                    "id": 1,
-                    "name": "Eum cupiditate est doloremque placeat nesciunt sit.",
-                    "builtin": false
-                }
-            ],
-            "location": {
-                "address_line_1": "Str. Bega nr. 070, bl. B, ap. 20",
-                "address_line_2": null,
-                "city": "Filiași",
-                "county": "Iași",
-                "postal_code": "310606",
-                "country": "KN",
-                "latitude": 85.409596,
-                "longitude": -88.242789
-            },
-            "contact": {
-                "email": "musat.visarion@example.net",
-                "phone": "0731135313",
-                "url": "http:\/\/www.barbulescu.com\/"
-            },
-            "distance": 64.79
+            }
         }
     ]
 }
@@ -572,8 +430,10 @@ curl -X GET \
 
 Parameter | Status | Description
 --------- | ------- | ------- | -----------
+    `categories[]` |  required  | List of category ids to return.
     `lat` |  required  | Latitude.
     `lng` |  required  | Longitude.
+    `country` |  required  | ISO 3166-1 alpha-2 country code.
     `radius` |  optional  | Show results only this many km away from the query coordinates. Defaults to 100.
 
 <!-- END_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
@@ -648,90 +508,5 @@ curl -X GET \
 
 
 <!-- END_c8c46f79ea22771862059c1f7bcb0e64 -->
-
-<!-- START_a90f973c81ffc9c1d05fa5beecb982b2 -->
-## Get a single entity type
-Retrieves a collection of entities that belong to the current type
-
-> Example request:
-
-```javascript
-const url = new URL(
-    "http://localhost/api/v1/types/3"
-);
-
-
-fetch(url, {
-    method: "GET",
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get('http://localhost/api/v1/types/3');
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://localhost/api/v1/types/3'
-response = requests.request('GET', url)
-response.json()
-```
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/v1/types/3" 
-```
-
-
-> Example response (200):
-
-```json
-{
-    "data": {
-        "name": "Quae laborum at quia quisquam itaque.",
-        "entities": [
-            {
-                "id": 3,
-                "name": "Bogdan, Nedelcu and Toth"
-            },
-            {
-                "id": 4,
-                "name": "Stoian, Peter and Ichim"
-            },
-            {
-                "id": 6,
-                "name": "Moga LLC"
-            },
-            {
-                "id": 10,
-                "name": "Munteanu-Zaharia"
-            },
-            {
-                "id": 12,
-                "name": "Moga Inc"
-            }
-        ]
-    }
-}
-```
-
-### HTTP Request
-`GET api/v1/types/{type}`
-
-#### URL Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -------
-    `type` |  required  | The ID of the entity type.
-
-<!-- END_a90f973c81ffc9c1d05fa5beecb982b2 -->
 
 

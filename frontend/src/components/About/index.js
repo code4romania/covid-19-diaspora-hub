@@ -5,8 +5,11 @@ import {
   SocialsShare,
   MailchimpSubscribe
 } from "@code4ro/taskforce-fe-components";
-import logo from "../../images/logo.svg";
 import bandaSponsori from "../../images/banda_sponsori.png";
+import aadrLogo from "../../images/aadr_logo.png";
+import govLogo from "../../images/gov_logo.png";
+import dprpLogo from "../../images/dprp_logo.png";
+import maeLogo from "../../images/mae_logo.png";
 import UsefulApps from "../../data/useful-apps";
 import "./About.scss";
 import {
@@ -22,84 +25,67 @@ const About = () => {
     <>
       <div className="container about-page">
         <section>
-          <Hero
-            title="Despre proiect"
-            useFallbackIcon={true}
-            subtitle="description"
-          />
+          <Hero title="Despre proiect" useFallbackIcon={true} />
+          <SocialsShare currentPage="https://diasporahub.ro/despre" />
+        </section>
+        <section>
+          <div className="columns">
+            <div className="column">
+              <p>
+                Platforma Diaspora Hub vine în sprijinul cetățenilor români din
+                afara României și a asociațiilor și grupurilor de sprijin de
+                peste hotare în situații de urgență precum cea cu care ne
+                confruntăm în aceste luni. Cu ajutorul unui chestionar simplu de
+                câteva întrebări, orice român care are nevoie de ajutor sau de
+                informații va fi ghidat ușor către grupurile care îi pot oferi
+                sprijin, fie că vorbim despre livrarea unor cumpărături, sprijin
+                cu câteva traduceri, informații utile în această perioadă etc.
+              </p>
+            </div>
+            <div className="column">
+              {" "}
+              <p>
+                Diaspora Hub este un proiect realizat în colaborare cu
+                Ministerul Afacerilor de Externe și Departamentul pentru Românii
+                de Pretutindeni alături de care, prin aceste funcționalități ne
+                propunem să distribuim cât mai uniform și eficient cererile de
+                ajutor către cei care în aceste zile depun eforturi să sprijine
+                pe toată lumea și să facilităm transferul de informații utile
+                cât mai simplu și pe înțelesul tuturor către românii din
+                diaspora.
+              </p>
+            </div>
+          </div>
+          <p>
+            Acest proiect este dezvoltat în cadrul programului Code for Romania
+            Task Force pro-bono, cu sprijinul Ministerului Afacerilor Externe și
+            al Departamentului pentru Românii de Pretutindeni.
+          </p>
           <div>
-            <SocialsShare currentPage={"https://diasporahub.ro/despre"} />
+            <img src={maeLogo} height="60" alt="mae" />
+            <img src={aadrLogo} height="60" alt="aadr" />
+            <img src={govLogo} height="60" alt="gov" />
+            <img src={dprpLogo} height="60" alt="dprp" />
+          </div>
+          <hr />
+          <br />
+          <div className="sponsors">
+            <h2>
+              <strong>
+                Programul Code for Romania Task Force este susținut de:
+              </strong>
+            </h2>
+            <img src={bandaSponsori} alt="" width="550" height="98" />
           </div>
         </section>
-        <section className="about-section-logo">
-          <img src={logo} alt="" width="450" />
-        </section>
-        <section className="has-border-bottom has-horizontal-paddding">
-          <p>
-            text
-            <a
-              href="https://www.facebook.com/comunicarenonprofit/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Brigăzii de Comunicare Nonprofit
-            </a>
-            , avizat de&nbsp;
-            <a
-              href="http://www.dsu.mai.gov.ro/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Departamentul pentru Situații de Urgență
-            </a>
-            , text2
-          </p>
-        </section>
-        <section className="has-border-bottom has-horizontal-paddding">
-          <p>
-            Platforma diasporahub.ro este construită de Code for Romania Task
-            Force în parteneriat cu&nbsp;
-            <a
-              href="https://www.gov.ro/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Guvernul României
-            </a>
-            , prin&nbsp;
-            <a
-              href="https://www.aadr.ro/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Autoritatea pentru Digitalizarea României
-            </a>
-            , și&nbsp;
-            <a
-              href="http://www.dsu.mai.gov.ro/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Departamentul pentru Situații de Urgență
-            </a>
-          </p>
-        </section>
-        <section className="has-border-bottom has-horizontal-paddding">
+
+        <section className="has-border-bottom has-vertical-paddding">
           <MailchimpSubscribe url={mailchimpURL} />
         </section>
       </div>
-      <div className="sponsors">
-        <p>
-          <strong>
-            Programul Code for Romania Task Force este susținut de:
-          </strong>
-        </p>
-        <br />
-        <img src={bandaSponsori} alt="" width="550" height="98" />
-      </div>
       <div className="container about-page">
         <aside className="about-section-useful-instruments">
-          <Hero title={"Instrumente utile"} useFallbackIcon={true} />
+          <Hero title="Instrumente utile" useFallbackIcon={true} />
 
           <Instruments layout="grid">
             {instrumentsData.info.map(usefulApp =>

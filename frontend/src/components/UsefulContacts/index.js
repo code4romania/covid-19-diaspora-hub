@@ -1,45 +1,13 @@
 import React from "react";
-import {
-  Hero,
-  SearchResultListItem,
-  SocialsShare
-} from "@code4ro/taskforce-fe-components";
-import contacts from "../../data/useful-contacts";
-
-import "./styles.scss";
+import { Hero, SocialsShare } from "@code4ro/taskforce-fe-components";
+import usefulContacts from "../../data/useful-contacts";
 
 const UsefulContacts = () => {
   return (
     <>
-      <Hero title="Contacte utile" />
+      <Hero title={usefulContacts.title} />
       <SocialsShare currentPage="https://diasporahub.ro/contacte-utile" />
-
-      {contacts.map((contact, index) => (
-        <div key={index} className="contact-wrapper ">
-          <SearchResultListItem title={contact.name}>
-            <div className="contact-details">
-              <span>
-                <b>Website: </b>
-                <a
-                  href={contact.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {contact.website}
-                </a>
-              </span>
-              <span>
-                <b>Telefon:</b>
-                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-              </span>
-              <span>
-                <b>Email:</b>{" "}
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </span>
-            </div>
-          </SearchResultListItem>
-        </div>
-      ))}
+      <div dangerouslySetInnerHTML={{ __html: usefulContacts.content }} />
     </>
   );
 };

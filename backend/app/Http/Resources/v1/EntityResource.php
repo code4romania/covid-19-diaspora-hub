@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\v1;
 
-use App\Http\Resources\v1\CategoryCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EntityResource extends JsonResource
@@ -14,23 +13,16 @@ class EntityResource extends JsonResource
      */
     public function toArray($request): array
     {
-        $data = [
+        return [
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
             'type'        => $this->type->name ?? null,
-            'categories'  => new CategoryCollection($this->categories),
+            'categories'  => new CategoryCollection($this->categories), //$this->categories->pluck('name'),
 
-            'location' => [
-                'address_line_1' => $this->address_line_1,
-                'address_line_2' => $this->address_line_2,
-                'city'           => $this->city,
-                'county'         => $this->county,
-                'postal_code'    => $this->postal_code,
-                'country'        => $this->country,
-                'latitude'       => $this->latitude,
-                'longitude'      => $this->longitude,
-            ],
+            'address'     => $this->address,
+            'latlng'      => $this->lat_lng,
+            'distance'    => $this->distance ? round($this->distance, 2) : null,
 
             'contact' => [
                 'email' => $this->email,
@@ -38,11 +30,5 @@ class EntityResource extends JsonResource
                 'url'   => $this->url,
             ],
         ];
-
-        if ($this->distance) {
-            $data['distance'] = round($this->distance, 2);
-        }
-
-        return $data;
     }
 }

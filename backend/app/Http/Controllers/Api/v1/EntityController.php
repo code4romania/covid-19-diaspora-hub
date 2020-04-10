@@ -16,12 +16,18 @@ class EntityController extends Controller
 {
     /**
      * Get all entities
-     *
-     * @queryParam page The page number. Example: 1
      */
     public function index(): EntityCollection
     {
         return new EntityCollection(Entity::all());
+    }
+
+    /**
+     * Get all entities without a location
+     */
+    public function withoutLocation(): EntityCollection
+    {
+        return new EntityCollection(Entity::withoutLocation()->get());
     }
 
     /**
@@ -37,10 +43,10 @@ class EntityController extends Controller
     /**
      * Search for entities
      *
-     * @TODO: maybe filter by categories
-     *
+     * @queryParam categories[] required List of category ids to return. Example: 8
      * @queryParam lat required Latitude. Example: 85.766782
      * @queryParam lng required Longitude. Example: -94.2354
+     * @queryParam country required ISO 3166-1 alpha-2 country code. Example: BW
      * @queryParam radius Show results only this many km away from the query coordinates. Defaults to 100. Example: 100
      */
     public function search(SearchEntitiesRequest $request): AnonymousResourceCollection
@@ -48,7 +54,11 @@ class EntityController extends Controller
         extract($request->validated());
 
         return EntityResource::collection(
-            Entity::geofence($lat, $lng, 0, $radius)
+            Entity::where('country', $country)
+                ->whereHas('categories', function ($query) use ($categories) {
+                    $query->whereIn('categories.id', $categories);
+                })
+                ->geofence($lat, $lng, 0, $radius)
                 ->orderBy('distance', 'ASC')
                 ->get()
         );

@@ -18,14 +18,16 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::prefix('entities')->name('entities.')->group(function () {
-    Route::get('/', [EntityController::class, 'index'])->name('index');
-    Route::get('{entity}', [EntityController::class, 'show'])->name('show')->where('entity', '[0-9]+');
+    // Route::get('/', [EntityController::class, 'index'])->name('index');
+    // Route::get('{entity}', [EntityController::class, 'show'])->name('show')->where('entity', '[0-9]+');
+
+    Route::get('/withoutLocation', [EntityController::class, 'withoutLocation'])->name('withoutLocation');
     Route::get('search', [EntityController::class, 'search'])->name('search');
 });
 
 Route::prefix('types')->name('types.')->group(function () {
     Route::get('/', [TypeController::class, 'index'])->name('index');
-    Route::get('{type}', [TypeController::class, 'show'])->name('show')->where('type', '[0-9]+');
+    // Route::get('{type}', [TypeController::class, 'show'])->name('show')->where('type', '[0-9]+');
 });
 
 Route::prefix('diplomatic-missions')->name('diplomatic-missions.')->group(function () {
@@ -35,5 +37,5 @@ Route::prefix('diplomatic-missions')->name('diplomatic-missions.')->group(functi
 
 Route::prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
-    Route::get('{category}', [CategoryController::class, 'show'])->name('show')->where('category', '[0-9]+');
+    // Route::get('{category}', [CategoryController::class, 'show'])->name('show')->where('category', '[0-9]+');
 });
