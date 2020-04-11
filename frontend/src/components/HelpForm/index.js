@@ -71,16 +71,16 @@ const HelpForm = () => {
           onFinishingForm={() => {}}
         />
       )}
-      {formResponse &&
-        formResponse.map((entity, index) => (
-          <div className="results-wrapper" key={index}>
+      <div className="results-wrapper content">
+        {formResponse &&
+          formResponse.map((entity, index) => (
             <SearchResultListItem
               title={entity.name}
               color={index % 2 === 0 ? "cyan" : ""}
+              key={index}
             >
               <p>{entity.description}</p>
 
-              <br />
               <b>Tip de ajutor:</b>
               <ul>
                 {entity.categories.map((category, index) => (
@@ -88,55 +88,64 @@ const HelpForm = () => {
                 ))}
               </ul>
               <address>
-                <br />
                 {entity.address && (
-                  <>
-                    <b>Adresa:</b>
+                  <p>
+                    <b>
+                      Adresa (
+                      <a
+                        href={`https://www.google.com/maps?q=${entity.latlng}&z=15`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Vezi pe harta
+                      </a>
+                      ):
+                    </b>
                     {entity.address.map(address => (
                       <>
                         <br />
                         {address}
                       </>
                     ))}
-                    <br />
-                    <br />
-                  </>
+                  </p>
                 )}
-                <b>Website: </b>
-                <a
-                  href={entity.contact.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {entity.contact.url}
-                </a>
-                <br />
-                <b>Telefon: </b>
-                <a href={`tel:${entity.contact.phone}`}>
-                  {entity.contact.phone}
-                </a>
-                <br />
-                <b>Email: </b>
-                <a
-                  href={`mailto:${entity.contact.email}subject=Hello&body=Body-goes-here`}
-                >
-                  {entity.contact.email}
-                </a>
-                <br />
-                <br />
-                <b>
-                  <a
-                    href={`https://maps.google.com/maps?ll=${entity.latlng}&q=${entity.latlng}&hl=en&t=m&z=15`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Vezi pe harta
-                  </a>
-                </b>
+
+                {entity.contact.url && (
+                  <p>
+                    <b>Website: </b>
+                    <a
+                      href={entity.contact.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {entity.contact.url}
+                    </a>
+                  </p>
+                )}
+
+                {entity.contact.phone && (
+                  <p>
+                    <b>Telefon: </b>
+                    <a href={`tel:${entity.contact.phone}`}>
+                      {entity.contact.phone}
+                    </a>
+                  </p>
+                )}
+
+                {entity.contact.email && (
+                  <p>
+                    <b>Email: </b>
+                    <a
+                      href={`mailto:${entity.contact.email}&subject=Hello&body=Body-goes-here`}
+                    >
+                      {entity.contact.email}
+                    </a>
+                  </p>
+                )}
               </address>
             </SearchResultListItem>
-          </div>
-        ))}
+          ))}
+      </div>
       {formResponse && !formResponse.length && (
         <p className="result-msg">Nu am putut gasi nici un rezultat.</p>
       )}

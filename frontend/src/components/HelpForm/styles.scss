@@ -2,10 +2,6 @@
   margin-top: 30px;
 }
 
-.results-wrapper {
-  margin-bottom: 25px;
-}
-
 .ap-input {
   height: 50px;
 }
@@ -18,4 +14,13 @@
 
 .result-msg__error {
   color: #d33333;
+}
+
+.searchResult {
+  margin-bottom: 25px;
+
+  address {
+    font-style: normal;
+    word-break: break-all;
+  }
 }
