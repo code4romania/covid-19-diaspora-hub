@@ -58,6 +58,12 @@ const HelpForm = () => {
     <>
       <Hero title="Ai nevoie de ajutor?" />
       <SocialsShare currentPage="https://diasporahub.ro" />
+      <p>
+        Cu ajutorul chestionarului de mai jos, poți fi ghidat cu ușurință către
+        grupurile care îți pot oferi sprijin, fie că vorbim despre livrarea unor
+        cumpărături, sprijin cu câteva traduceri, informații utile în această
+        perioadă sau alte informații.
+      </p>
       {!formResponse && (
         <Form
           data={askForHelpForm(categories)}
