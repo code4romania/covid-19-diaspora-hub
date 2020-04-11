@@ -16,7 +16,7 @@ export const AlgoliaSearch = ({ question, onAnswer }) => {
       <ListHeader title={question.questionText} />
       <AlgoliaPlaces
         placeholder="Completeaza orasul sau adresa ta aici"
-        options={algoliaConfig}
+        options={{ ...algoliaConfig, type: "city" }}
         onChange={searchResult => onChange(searchResult)}
         // onLimit={() => setErrorMessage("Ne pare rau, a aparut o problema.")}
         // onError={() => setErrorMessage("Ne pare rau, a aparut o problema.")}
