@@ -35,7 +35,7 @@ const HelpForm = () => {
 
   const evaluate = async formData => {
     const { lat, lng, countryCode } = formData[1];
-    const categories = formData[5];
+    const categories = formData[4];
     const url = new URL(`${process.env.REACT_APP_API_URL}/entities/search`);
     const urlSearchParams = new URLSearchParams({
       lat,
@@ -43,7 +43,7 @@ const HelpForm = () => {
       country: countryCode
     });
     let categoriesString = "";
-    categories.forEach(categoryId => {
+    Object.keys(categories).forEach(categoryId => {
       categoriesString += `${categoryId}&categories[]=`;
     });
     urlSearchParams.append("categories[]", categoriesString);
