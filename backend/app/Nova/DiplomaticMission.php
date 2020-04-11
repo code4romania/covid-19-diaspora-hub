@@ -60,14 +60,15 @@ class DiplomaticMission extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->hideFromIndex(),
+            ID::make()
+                ->hideFromIndex(),
 
             Text::make(__('nova.fields.city'), 'city')
-                ->rules('required', 'max:255')
+                ->rules('required')
                 ->sortable(),
 
             Textarea::make(__('nova.fields.address'), 'address')
-                ->rules('required', 'max:500')
+                ->rules('required')
                 ->showOnIndex(),
 
             $this->contactPanel(),

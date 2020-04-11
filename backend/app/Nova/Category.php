@@ -61,12 +61,11 @@ class Category extends Resource
     {
         return [
             ID::make()
-                ->sortable()
                 ->hideFromIndex(),
 
             Text::make(__('nova.fields.name'), 'name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required')
+                ->sortable(),
 
             Number::make(__('nova.entities'), 'entities_count')
                 ->hideWhenCreating()
