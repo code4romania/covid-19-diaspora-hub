@@ -47,19 +47,19 @@ class User extends Resource
             Gravatar::make()->maxWidth(50),
 
             Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->sortable(),
 
             Text::make('Email')
-                ->sortable()
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->updateRules('unique:users,email,{{resourceId}}')
+                ->sortable(),
 
             Password::make('Password')
-                ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
+                ->updateRules('nullable', 'string', 'min:8')
+                ->onlyOnForms(),
         ];
     }
 
