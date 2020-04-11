@@ -7,7 +7,7 @@ use App\Http\Resources\v1\DiplomaticMissionCollection;
 use App\Models\DiplomaticMission;
 
 /**
- * @group Categories
+ * @group Diplomatic missions
  */
 final class DiplomaticMissionController extends Controller
 {
