@@ -8,6 +8,7 @@ use App\Nova\Filters\TypeFilter;
 use Benjacho\BelongsToManyField\BelongsToManyField;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Place;
@@ -175,6 +176,9 @@ class Entity extends Resource
         return new Panel(
             __('nova.panels.address'),
             [
+                Boolean::make(__('nova.fields.location'), 'lat_lng')
+                    ->onlyOnIndex(),
+
                 Text::make(__('nova.fields.address_line_1'), 'address_line_1')
                     ->hideFromIndex(),
 
