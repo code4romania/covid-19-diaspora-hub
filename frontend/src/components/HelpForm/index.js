@@ -136,7 +136,7 @@ const HelpForm = () => {
                   <p>
                     <b>Email: </b>
                     <a
-                      href={`mailto:${entity.contact.email}&subject=Hello&body=Body-goes-here`}
+                      href={`mailto:${entity.contact.email}?subject=Hello&body=Body-goes-here`}
                     >
                       {entity.contact.email}
                     </a>
