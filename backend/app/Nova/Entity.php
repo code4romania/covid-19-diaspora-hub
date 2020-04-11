@@ -176,15 +176,16 @@ class Entity extends Resource
         return new Panel(
             __('nova.panels.address'),
             [
-                Place::make(__('nova.fields.address_line_1'), 'address_line_1')
-                    ->hideFromIndex()
-                    ->state('county'),
+                Text::make(__('nova.fields.address_line_1'), 'address_line_1')
+                    ->hideFromIndex(),
 
                 Text::make(__('nova.fields.address_line_2'), 'address_line_2')
                     ->hideFromIndex()
                     ->sortable(),
 
-                Text::make(__('nova.fields.city'), 'city')
+                Place::make(__('nova.fields.city'), 'city')
+                    ->onlyCities()
+                    ->state('county')
                     ->sortable(),
 
                 Text::make(__('nova.fields.county'), 'county'),
