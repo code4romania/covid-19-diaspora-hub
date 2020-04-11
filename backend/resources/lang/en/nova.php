@@ -25,6 +25,8 @@ return [
         'city'           => 'City',
         'county'         => 'County',
         'postal_code'    => 'Postal Code',
+        'location'       => 'Location',
+        'noLocation'     => 'Without location',
         'latitude'       => 'Latitude',
         'longitude'      => 'Longitude',
         'builtin'        => 'Builtin',
