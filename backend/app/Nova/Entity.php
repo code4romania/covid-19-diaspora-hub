@@ -2,9 +2,10 @@
 
 namespace App\Nova;
 
-use App\Nova\Type;
 use App\Nova\Filters\CategoryFilter;
+use App\Nova\Filters\LocationFilter;
 use App\Nova\Filters\TypeFilter;
+use App\Nova\Type;
 use Benjacho\BelongsToManyField\BelongsToManyField;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -126,6 +127,7 @@ class Entity extends Resource
         return [
             new CategoryFilter,
             new TypeFilter,
+            new LocationFilter,
         ];
     }
 
