@@ -147,7 +147,7 @@ const HelpForm = () => {
           ))}
       </div>
       {formResponse && !formResponse.length && (
-        <p className="result-msg">Nu am putut gasi nici un rezultat.</p>
+        <p className="result-msg">Nu am putut gasi niciun rezultat.</p>
       )}
     </>
   );
