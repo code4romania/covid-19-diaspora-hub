@@ -82,15 +82,14 @@ class Entity extends Resource
     {
         return [
             ID::make()
-                ->sortable()
                 ->hideFromIndex(),
 
             Text::make(__('nova.fields.name'), 'name')
-                ->rules('required', 'max:255')
+                ->rules('required')
                 ->sortable(),
 
             Textarea::make(__('nova.fields.description'), 'description')
-                ->rules('required', 'max:500')
+                ->rules('required')
                 ->alwaysShow(),
 
             BelongsTo::make(__('nova.type'), 'type', Type::class),
@@ -157,7 +156,7 @@ class Entity extends Resource
             __('nova.panels.contact'),
             [
                 Text::make(__('nova.fields.email'), 'email')
-                    ->rules('nullable', 'email', 'max:254')
+                    ->rules('nullable', 'email')
                     ->hideFromIndex(),
 
                 Text::make(__('nova.fields.phone'), 'phone')
