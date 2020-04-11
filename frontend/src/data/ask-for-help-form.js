@@ -57,46 +57,11 @@ export const askForHelpForm = categories => ({
     {
       questionId: 4,
       questionText: "De ce tip de ajutor ai nevoie?",
-      type: "SINGLE_CHOICE",
-      options: [
-        {
-          label: "distributie de alimente",
-          value: 1
-        },
-        {
-          label: "distributie de medicamente",
-          value: 2
-        },
-        {
-          label: "sprijin financiar",
-          value: 3
-        },
-        {
-          label: "sprijin în găsirea de cazare temporară",
-          value: 4
-        },
-        {
-          label: "servicii de transport",
-          value: 5
-        },
-        {
-          label: "servicii de traducere și interpretare",
-          value: 6
-        },
-        {
-          label: "consiliere psihologică la distanță",
-          value: 7
-        }
-      ]
-    },
-    {
-      questionId: 5,
-      questionText: "De ce tip de ajutor ai nevoie?",
       type: "MULTIPLE_CHOICE",
       options: categories
     },
     {
-      questionId: 6,
+      questionId: 5,
       questionText: "Final",
       type: "FINAL",
       options: [
