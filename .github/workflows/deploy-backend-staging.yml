@@ -1,7 +1,9 @@
-on: push
-  # push:
-  #   branches:
-  #     - develop
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'backend/**'
 
 name: Deploy backend
 jobs:
