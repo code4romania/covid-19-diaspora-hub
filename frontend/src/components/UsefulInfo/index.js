@@ -7,7 +7,10 @@ const UsefulInfo = () => {
     <>
       <Hero title={usefulInfo.title} />
       <SocialsShare currentPage="https://diasporahub.ro" />
-      <div dangerouslySetInnerHTML={{ __html: usefulInfo.content }} />
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: usefulInfo.content }}
+      />
     </>
   );
 };

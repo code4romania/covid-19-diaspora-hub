@@ -30,6 +30,5 @@ AlgoliaSearch.propTypes = {
     questionId: PropTypes.number.isRequired,
     questionText: PropTypes.string.isRequired
   }),
-  onAnswer: PropTypes.func,
-  currentResponse: PropTypes.number
+  onAnswer: PropTypes.func
 };
