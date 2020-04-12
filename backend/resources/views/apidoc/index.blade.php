@@ -52,7 +52,7 @@
 <!-- END_INFO -->
 <h1>Categories</h1>
 <!-- START_80420c095ed96da032c9eb419d7d6e2d -->
-<h2>Get all categories</h2>
+<h2>Get all builtin categories</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -83,46 +83,6 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": [
-        {
-            "id": 1,
-            "name": "Eum cupiditate est doloremque placeat nesciunt sit.",
-            "builtin": false
-        },
-        {
-            "id": 2,
-            "name": "Qui qui pariatur labore dolore.",
-            "builtin": false
-        },
-        {
-            "id": 3,
-            "name": "Ullam earum impedit dolores nostrum molestiae laborum praesentium facilis.",
-            "builtin": false
-        },
-        {
-            "id": 4,
-            "name": "Aut in qui repellendus tenetur.",
-            "builtin": false
-        },
-        {
-            "id": 5,
-            "name": "Eum minus aut sapiente dolorem tenetur.",
-            "builtin": false
-        },
-        {
-            "id": 6,
-            "name": "Enim autem ipsam rem dolorem a.",
-            "builtin": false
-        },
-        {
-            "id": 7,
-            "name": "Minus in et ad saepe.",
-            "builtin": false
-        },
-        {
-            "id": 8,
-            "name": "Recusandae ratione qui aliquid ratione et quo nostrum.",
-            "builtin": false
-        },
         {
             "id": 9,
             "name": "Omnis beatae accusamus harum nihil aspernatur sed.",
@@ -1320,7 +1280,7 @@ response.json()</code></pre>
             "city": "Melbourne",
             "address": "448 St. Kilda Road, Etaj 5, Birou 5.05-5.06, 3004 VIC, Melbourne",
             "email": "contact@informatiiconsulare.ro",
-            "phone": "+61 3 99783804, +61 3 99783806, +61 3 99783805 ",
+            "phone": "+61 3 99783804, +61 3 99783806, +61 3 99783805",
             "url": "http:\/\/canberra.mae.ro"
         },
         {
