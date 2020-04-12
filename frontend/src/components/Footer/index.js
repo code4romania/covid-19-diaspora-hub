@@ -17,39 +17,20 @@ const FooterWrapper = () => {
         </FooterLinkItem>
         <FooterLinkItem>
           <a
-            href="https://stirioficiale.ro/informatii"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Știri Oficiale
-          </a>
-        </FooterLinkItem>
-        <FooterLinkItem>
-          <a
-            href="https://www.gov.ro/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Guvernul României
-          </a>
-        </FooterLinkItem>
-        <FooterLinkItem>
-          <a
-            href="http://www.dsu.mai.gov.ro/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Departamentul pentru Situații de Urgență
-          </a>
-        </FooterLinkItem>
-        <FooterLinkItem>
-          <a
             href="http://www.code4.ro/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Code for Romania
           </a>
+        </FooterLinkItem>
+        <FooterLinkItem>
+          <Link to="/termeni-si-conditii">Termeni și condiții</Link>
+        </FooterLinkItem>
+        <FooterLinkItem>
+          <Link to="/politica-de-confidentialitate">
+            Politică de confidențialitate
+          </Link>
         </FooterLinkItem>
       </FooterLinks>
     </Footer>

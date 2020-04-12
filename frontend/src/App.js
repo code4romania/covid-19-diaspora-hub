@@ -20,6 +20,10 @@ import "./App.scss";
 
 import Sidebar from "./components/layout/Sidebar";
 import Footer from "./components/Footer";
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
+const TermsAndConditions = lazy(() =>
+  import("./components/TermsAndConditions")
+);
 const UsefulContacts = lazy(() => import("./components/UsefulContacts"));
 const About = lazy(() => import("./components/About"));
 const UsefulInfo = lazy(() => import("./components/UsefulInfo"));
@@ -33,6 +37,22 @@ const Logo = () => (
 );
 
 const MenuItems = [
+  <a
+    href="https://cetrebuiesafac.ro"
+    target="_blank"
+    rel="noopener noreferrer"
+    key={"cetrebuiesafac"}
+  >
+    Ce trebuie să fac
+  </a>,
+  <a
+    href="https://datelazi.ro"
+    target="_blank"
+    rel="noopener noreferrer"
+    key={"datelazi"}
+  >
+    Date la zi
+  </a>,
   <a
     href="https://stirioficiale.ro"
     target="_blank"
@@ -82,6 +102,12 @@ const App = () => {
             </Route>
             <Route path="/despre">
               <About />
+            </Route>
+            <Route path="/politica-de-confidentialitate">
+              <PrivacyPolicy />
+            </Route>
+            <Route path="/termeni-si-conditii">
+              <TermsAndConditions />
             </Route>
             <Route
               exact

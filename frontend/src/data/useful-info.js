@@ -1,7 +1,7 @@
 export default {
   title: "Informații utile pentru românii din diaspora",
   content: `<p>
-        Daca sunteti o organizație din diaspora și doriți să contribuiți cu
+        Dacă sunteți o organizație din diaspora și doriți să contribuiți cu
         sprijin, vă puteți înscrie cu ajutorul acestui <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcaBJGO4c5yKbYUwebcDtbL8mmAQKnDMjOWkqAJqm28JJi0g/viewform">
           formular
         </a>

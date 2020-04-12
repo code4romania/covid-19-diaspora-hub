@@ -1,7 +1,3 @@
-.newsletter {
-  margin-top: 20px;
-}
-
 @media (min-width: 768px) {
   .homepage-columns {
     flex-direction: row-reverse;
@@ -10,7 +6,8 @@
 
 @media (max-width: 768px) {
   .homepage-sidebar .instruments-wrapper,
-  .pages-list, .newsletter {
+  .pages-list,
+  .newsletter {
     display: none;
   }
 }

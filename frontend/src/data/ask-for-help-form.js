@@ -8,7 +8,7 @@ export const askForHelpForm = categories => ({
     {
       questionId: 1,
       questionText:
-        "Completeaza formularul de mai jos pentru a te putea indruma mai usor.",
+        "Completează formularul de mai jos pentru a te putea îndruma mai ușor.",
       type: "CUSTOM",
       children: AlgoliaSearch
     },

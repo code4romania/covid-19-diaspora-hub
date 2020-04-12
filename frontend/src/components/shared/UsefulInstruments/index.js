@@ -1,17 +1,12 @@
 import React from "react";
 
-import {
-  Hero,
-  Instruments,
-  MailchimpSubscribe
-} from "@code4ro/taskforce-fe-components";
+import { Hero, Instruments } from "@code4ro/taskforce-fe-components";
 
 import UsefulApps from "../../../data/useful-apps";
 import {
   renderInstrumentItem,
   remapInstrumentsData
 } from "../../../utils/instruments.utils";
-import { mailchimpURL } from "../../../config/mailchimp";
 
 import "./styles.scss";
 
@@ -29,9 +24,6 @@ const UsefulInstruments = () => {
             );
           })}
         </Instruments>
-      </div>
-      <div className="newsletter">
-        <MailchimpSubscribe url={mailchimpURL} compact={true} />
       </div>
     </>
   );
