@@ -1,9 +1,9 @@
 name: deploy frontend
-on:
-  push:
-    branches:
-      - develop
-      - master
+on: push
+  # push:
+  #   branches:
+  #     - develop
+  #     - master
 
 env:
   AWS_S3_BUCKET_TEST: ${{ secrets.AWS_S3_BUCKET_TEST }}
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: "./frontend"
-    if: github.ref == 'refs/heads/develop'
+    # if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v2
 
@@ -54,7 +54,7 @@ jobs:
       - name: Invalidate Cloudfront Staging
         uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
         env:
-          DISTRIBUTION_ID: ${{ DISTRIBUTION_ID_TEST }}
+          DISTRIBUTION_ID: ${{ $DISTRIBUTION_ID_TEST }}
 
   deploy-production:
     runs-on: ubuntu-latest
@@ -93,4 +93,4 @@ jobs:
       - name: Invalidate Cloudfront Production
         uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
         env:
-          DISTRIBUTION_ID: ${{ DISTRIBUTION_ID_PROD }}
+          DISTRIBUTION_ID: ${{ $DISTRIBUTION_ID_PROD }}
