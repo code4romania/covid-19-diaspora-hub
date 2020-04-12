@@ -16,6 +16,7 @@ use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Panel;
+use NovaAttachMany\AttachMany;
 
 class Entity extends Resource
 {
@@ -96,8 +97,10 @@ class Entity extends Resource
 
             BelongsTo::make(__('nova.type'), 'type', Type::class),
 
+            AttachMany::make(__('nova.categories'), 'categories', Category::class),
             BelongsToManyField::make(__('nova.categories'), 'categories', Category::class)
-                ->rules('required'),
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
             $this->contactPanel(),
 
