@@ -23,7 +23,6 @@ jobs:
           coverage: none
 
       - name: Cache composer dependencies
-        working-directory: ${{ env.working-directory }}
         uses: actions/cache@v1
         with:
           path: ~/.composer/cache/files
