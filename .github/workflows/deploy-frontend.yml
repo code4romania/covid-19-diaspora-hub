@@ -1,9 +1,9 @@
 name: deploy frontend
-on: push
-  # push:
-  #   branches:
-  #     - develop
-  #     - master
+on:
+  push:
+    branches:
+      - develop
+      - master
 
 env:
   PATHS: "/*"
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: "./frontend"
-    # if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v2
 
