@@ -7,7 +7,10 @@ const UsefulContacts = () => {
     <>
       <Hero title={usefulContacts.title} />
       <SocialsShare currentPage="https://diasporahub.ro/contacte-utile" />
-      <div dangerouslySetInnerHTML={{ __html: usefulContacts.content }} />
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: usefulContacts.content }}
+      />
     </>
   );
 };
