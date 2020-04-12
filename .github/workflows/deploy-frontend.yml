@@ -1,10 +1,10 @@
-name: deploy frontend
 on:
   push:
     branches:
       - develop
       - master
 
+name: Deploy frontend
 env:
   PATHS: "/*"
   SOURCE_DIR: "./frontend/build"

@@ -120,7 +120,7 @@ return [
 
     'options' => [
         'application'         => env('APP_NAME', 'Laravel'),
-        'repository'          => env('DEPLOY_REPOSITORY', 'git@github.com:code4romania/diaspora-hub.git'),
+        'repository'          => env('DEPLOY_REPOSITORY', 'https://github.com/code4romania/diaspora-hub.git'),
         'php_fpm_service'     => 'php7.4-fpm',
         'writable_use_sudo'   => true,
         'writable_chmod_mode' => '0775',
