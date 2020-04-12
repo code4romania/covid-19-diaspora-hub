@@ -67,7 +67,7 @@ export const askForHelpForm = categories => ({
       options: [
         {
           label: "distributie de alimente",
-          value: 1
+          value: 0
         }
       ]
     }
