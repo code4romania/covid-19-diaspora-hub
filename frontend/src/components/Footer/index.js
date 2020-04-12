@@ -17,7 +17,7 @@ const FooterWrapper = () => {
         </FooterLinkItem>
         <FooterLinkItem>
           <a
-            href="http://www.code4.ro/"
+            href="https://code4.ro/ro/"
             target="_blank"
             rel="noopener noreferrer"
           >
