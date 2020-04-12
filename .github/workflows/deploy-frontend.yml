@@ -54,7 +54,7 @@ jobs:
       - name: Invalidate Cloudfront Staging
         uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
         env:
-          DISTRIBUTION_ID: $DISTRIBUTION_ID_TEST
+          DISTRIBUTION_ID: ${{ DISTRIBUTION_ID_TEST }}
 
   deploy-production:
     runs-on: ubuntu-latest
@@ -93,4 +93,4 @@ jobs:
       - name: Invalidate Cloudfront Production
         uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
         env:
-          DISTRIBUTION_ID: $DISTRIBUTION_ID_PROD
+          DISTRIBUTION_ID: ${{ DISTRIBUTION_ID_PROD }}
