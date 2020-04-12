@@ -1,17 +1,17 @@
 on:
   push:
     branches:
-      - develop
+      - master
     paths:
       - 'backend/**'
 
-name: Deploy backend on staging
+name: Deploy backend on production
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_STAGING_HOSTNAME: ${{ secrets.DEPLOY_STAGING_HOSTNAME }}
-      DEPLOY_STAGING_PATH: "/var/www/staging.diasporahub.ro"
+      DEPLOY_PRODUCTION_HOSTNAME: ${{ secrets.DEPLOY_PRODUCTION_HOSTNAME }}
+      DEPLOY_PRODUCTION_PATH: "/var/www/diasporahub.ro"
       working-directory: "./backend"
     steps:
       - uses: actions/checkout@v2
@@ -41,7 +41,7 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan $DEPLOY_STAGING_HOSTNAME >> ~/.ssh/known_hosts
+          ssh-keyscan $DEPLOY_PRODUCTION_HOSTNAME >> ~/.ssh/known_hosts
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
 
@@ -49,4 +49,4 @@ jobs:
         working-directory: ${{ env.working-directory }}
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: php artisan deploy staging
+        run: php artisan deploy production
