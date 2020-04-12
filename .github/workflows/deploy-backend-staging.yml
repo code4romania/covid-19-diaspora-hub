@@ -1,0 +1,51 @@
+on: push
+  # push:
+  #   branches:
+  #     - develop
+
+name: Deploy backend
+jobs:
+  deploy-stage:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_STAGING_HOSTNAME: ${{ secrets.DEPLOY_STAGING_HOSTNAME }}
+      DEPLOY_STAGING_PATH: "/var/www/staging.diasporahub.ro"
+      working-directory: "./backend"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring
+          tools: composer
+          coverage: none
+
+      - name: Cache composer dependencies
+        working-directory: ${{ env.working-directory }}
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-composer-${{ hashFiles('composer.lock') }}
+
+      - name: Composer install
+        working-directory: ${{ env.working-directory }}
+        run: composer install --ignore-platform-reqs --no-scripts --no-interaction --prefer-dist --optimize-autoloader
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+
+      - name: Setup SSH Keys and known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan $DEPLOY_STAGING_HOSTNAME >> ~/.ssh/known_hosts
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+
+      - name: Deploy
+        working-directory: ${{ env.working-directory }}
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: php artisan deploy staging
