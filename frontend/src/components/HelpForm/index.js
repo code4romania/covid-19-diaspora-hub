@@ -108,12 +108,15 @@ const HelpForm = () => {
             {!formResponse.entities.length && (
               <p>
                 Din păcate în țara ta nu am găsit o organizație care să se fi
-                înscris în Diaspora Hub și care să te poată ajuta. Poți încerca
-                să postezi și un mesaj în grupurile de Facebook de mai jos sau
-                să dai un mesaj altor organizații din țara ta, cu rugămintea să
-                te direcționeze către alte posibile surse de sprijin.
+                înscris în Diaspora Hub și care să te poată ajuta.
               </p>
             )}
+            <p>
+              Poți încerca să postezi și un mesaj în grupurile de Facebook de
+              mai jos sau să dai un mesaj altor organizații din țara ta, cu
+              rugămintea să te direcționeze către alte posibile surse de
+              sprijin.
+            </p>
             {formResponse.entitiesWithoutLocation.map((entity, index) => (
               <SearchResult
                 entity={entity}
