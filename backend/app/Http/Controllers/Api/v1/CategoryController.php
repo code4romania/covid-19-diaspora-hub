@@ -13,11 +13,11 @@ use App\Models\Category;
 final class CategoryController extends Controller
 {
     /**
-     * Get all categories
+     * Get all builtin categories
      */
     public function index(): CategoryCollection
     {
-        return new CategoryCollection(Category::all());
+        return new CategoryCollection(Category::where('builtin', true)->get());
     }
 
     /**
