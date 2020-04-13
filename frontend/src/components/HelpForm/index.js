@@ -58,8 +58,10 @@ const HelpForm = () => {
   const evaluate = async formData => {
     const { lat, lng, countryCode } = formData[1];
     const categories = formData[4];
-    const entities = await fetchEntities(lat, lng, countryCode, categories);
-    const entitiesWithoutLocation = await fetchEntitiesWithoutLocation();
+    const [entities, entitiesWithoutLocation] = await Promise.all([
+      await fetchEntities(lat, lng, countryCode, categories),
+      await fetchEntitiesWithoutLocation()
+    ]);
     setFormResponse({ entities, entitiesWithoutLocation });
     return 0;
   };
