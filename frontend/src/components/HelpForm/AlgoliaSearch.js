@@ -7,7 +7,7 @@ export const AlgoliaSearch = ({ question, onAnswer }) => {
   const onChange = ({ suggestion }) => {
     const answer = {
       questionId: question.questionId,
-      value: { countryCode: suggestion.countryCode, ...suggestion.latlng }
+      value: suggestion
     };
     onAnswer(answer);
   };

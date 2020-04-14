@@ -1,6 +1,6 @@
 import { AlgoliaSearch } from "../components/HelpForm/AlgoliaSearch";
 
-export const askForHelpForm = categories => ({
+export const askForHelpForm = (categories = []) => ({
   title: "Cere ajutor de la comunitate",
   formId: 1,
   firstNodeId: 1,
