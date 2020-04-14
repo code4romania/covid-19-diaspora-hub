@@ -2,7 +2,7 @@
 
 return [
 
-    'defaultSearchRadius' => 100, // km
+    'defaultSearchRadius' => 250, // km
 
     'countries' => [
         'AD',
