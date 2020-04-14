@@ -47,7 +47,7 @@ class EntityController extends Controller
      * @queryParam lat required Latitude. Example: 85.766782
      * @queryParam lng required Longitude. Example: -94.2354
      * @queryParam country required ISO 3166-1 alpha-2 country code. Example: BW
-     * @queryParam radius Show results only this many km away from the query coordinates. Defaults to 100. Example: 100
+     * @queryParam radius Show results only this many km away from the query coordinates. Defaults to 250. Example: 100
      */
     public function search(SearchEntitiesRequest $request): AnonymousResourceCollection
     {

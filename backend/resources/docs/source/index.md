@@ -1645,7 +1645,7 @@ Parameter | Status | Description
     `lat` |  required  | Latitude.
     `lng` |  required  | Longitude.
     `country` |  required  | ISO 3166-1 alpha-2 country code.
-    `radius` |  optional  | Show results only this many km away from the query coordinates. Defaults to 100.
+    `radius` |  optional  | Show results only this many km away from the query coordinates. Defaults to 250.
 
 <!-- END_0bc6ff20cc4bbe3fa77e620bd3eebd49 -->
 
