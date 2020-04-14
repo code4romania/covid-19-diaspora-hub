@@ -66,7 +66,7 @@ const HelpForm = () => {
       await fetchEntitiesWithoutLocation()
     ]);
 
-    const selectedCity = formData[1].name;
+    const selectedCity = `${formData[1].name}, ${formData[1].administrative}, ${formData[1].country}`;
     const relationSituation = askForHelpForm().form[1].options.find(
       option => option.value === formData[2]
     ).label;
