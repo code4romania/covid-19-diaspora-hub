@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link rel="stylesheet" href="/docs/css/style.css" />
-    <script src="/docs/js/all.js"></script>
+    <link rel="stylesheet" href="{{ asset('/docs/css/style.css') }}" />
+    <script src="{{ asset('/docs/js/all.js') }}"></script>
 
 
           <script>
@@ -1618,7 +1618,7 @@ response.json()</code></pre>
 <tr>
 <td><code>radius</code></td>
 <td>optional</td>
-<td>Show results only this many km away from the query coordinates. Defaults to 100.</td>
+<td>Show results only this many km away from the query coordinates. Defaults to 250.</td>
 </tr>
 </tbody>
 </table>
