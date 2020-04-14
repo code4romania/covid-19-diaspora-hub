@@ -56,13 +56,40 @@ const HelpForm = () => {
   };
 
   const evaluate = async formData => {
-    const { lat, lng, countryCode } = formData[1];
-    const categories = formData[4];
+    const {
+      latlng: { lat, lng },
+      countryCode
+    } = formData[1];
+    const categoriesFormData = formData[4];
     const [entities, entitiesWithoutLocation] = await Promise.all([
-      await fetchEntities(lat, lng, countryCode, categories),
+      await fetchEntities(lat, lng, countryCode, categoriesFormData),
       await fetchEntitiesWithoutLocation()
     ]);
-    setFormResponse({ entities, entitiesWithoutLocation });
+
+    const selectedCity = `${formData[1].name}, ${formData[1].administrative}, ${formData[1].country}`;
+    const relationSituation = askForHelpForm().form[1].options.find(
+      option => option.value === formData[2]
+    ).label;
+    const currentSituation = askForHelpForm().form[2].options.find(
+      option => option.value === formData[3]
+    ).label;
+    const selectedCategoriesString = categories
+      .filter(category =>
+        Object.keys(formData[4]).includes(category.value.toString())
+      )
+      .map(selectedCategory => selectedCategory.label)
+      .join(", ");
+
+    setFormResponse({
+      entities,
+      entitiesWithoutLocation,
+      userResponse: {
+        selectedCity,
+        relationSituation,
+        currentSituation,
+        selectedCategoriesString
+      }
+    });
     return 0;
   };
 
@@ -99,8 +126,9 @@ const HelpForm = () => {
               </p>
               {formResponse.entities.map((entity, index) => (
                 <SearchResult
-                  entity={entity}
                   key={`entities-${index}`}
+                  entity={entity}
+                  userResponse={formResponse.userResponse}
                   color={index % 2 === 0 ? "cyan" : "blue"}
                 />
               ))}
@@ -121,8 +149,9 @@ const HelpForm = () => {
             </p>
             {formResponse.entitiesWithoutLocation.map((entity, index) => (
               <SearchResult
-                entity={entity}
                 key={`entities2-${index}`}
+                entity={entity}
+                userResponse={formResponse.userResponse}
                 color={index % 2 === 0 ? "cyan" : "blue"}
               />
             ))}

@@ -27,7 +27,6 @@ const TermsAndConditions = lazy(() =>
 const UsefulContacts = lazy(() => import("./components/UsefulContacts"));
 const About = lazy(() => import("./components/About"));
 const UsefulInfo = lazy(() => import("./components/UsefulInfo"));
-const UsefulInfoDetails = lazy(() => import("./components/UsefulInfoDetails"));
 const HelpForm = lazy(() => import("./components/HelpForm"));
 
 const Logo = () => (
@@ -109,15 +108,6 @@ const App = () => {
             <Route path="/termeni-si-conditii">
               <TermsAndConditions />
             </Route>
-            <Route
-              exact
-              path="/informatii-utile/:id"
-              render={props => (
-                <Sidebar>
-                  <UsefulInfoDetails {...props} />
-                </Sidebar>
-              )}
-            />
           </Switch>
         </Suspense>
       </main>

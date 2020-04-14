@@ -4,7 +4,7 @@ import { SearchResultListItem } from "@code4ro/taskforce-fe-components";
 
 import "./styles.scss";
 
-const SearchResult = ({ entity, color }) => (
+const SearchResult = ({ entity, color, userResponse }) => (
   <SearchResultListItem title={entity.name} color={color}>
     <p>{entity.description}</p>
     <b>Tip de ajutor:</b>
@@ -61,7 +61,7 @@ const SearchResult = ({ entity, color }) => (
             <p>
               <b>Email: </b>
               <a
-                href={`mailto:${entity.contact.email}?subject=Hello&body=Body-goes-here`}
+                href={`mailto:${entity.contact.email}?subject=Am nevoie de ajutor&body=Oras solicitare: ${userResponse.selectedCity} %0d%0aSituatie: ${userResponse.relationSituation}, ${userResponse.currentSituation} %0d%0aNevoi: ${userResponse.selectedCategoriesString} %0d%0a`}
               >
                 {entity.contact.email}
               </a>
@@ -88,6 +88,12 @@ SearchResult.propTypes = {
       phone: PropTypes.string,
       email: PropTypes.string
     })
+  }),
+  userResponse: PropTypes.shape({
+    selectedCity: PropTypes.string,
+    relationSituation: PropTypes.string,
+    currentSituation: PropTypes.string,
+    selectedCategoriesString: PropTypes.string
   }),
   color: PropTypes.oneOf(["cyan", "blue"])
 };
