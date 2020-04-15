@@ -6,7 +6,6 @@ use App\Nova\Filters\CategoryFilter;
 use App\Nova\Filters\LocationFilter;
 use App\Nova\Filters\TypeFilter;
 use App\Nova\Type;
-use Benjacho\BelongsToManyField\BelongsToManyField;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -98,9 +97,6 @@ class Entity extends Resource
             BelongsTo::make(__('nova.type'), 'type', Type::class),
 
             AttachMany::make(__('nova.categories'), 'categories', Category::class),
-            BelongsToManyField::make(__('nova.categories'), 'categories', Category::class)
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
 
             $this->contactPanel(),
 
@@ -192,11 +188,13 @@ class Entity extends Resource
                     ->sortable(),
 
                 Place::make(__('nova.fields.city'), 'city')
+                    ->hideFromIndex()
                     ->onlyCities()
                     ->state('county')
                     ->sortable(),
 
-                Text::make(__('nova.fields.county'), 'county'),
+                Text::make(__('nova.fields.county'), 'county')
+                    ->hideFromIndex(),
 
                 Text::make(__('nova.fields.postal_code'), 'postal_code')
                     ->hideFromIndex(),
