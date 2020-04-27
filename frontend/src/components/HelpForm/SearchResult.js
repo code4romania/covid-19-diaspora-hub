@@ -14,7 +14,7 @@ const SearchResult = ({ entity, color, userResponse }) => (
       ))}
     </ul>
     <address>
-      {entity.address && (
+      {entity.address && entity.address.length > 0 && (
         <p>
           <b>
             Adresa (

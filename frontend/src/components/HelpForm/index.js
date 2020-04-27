@@ -15,9 +15,9 @@ const HelpForm = () => {
     );
     const { data } = await apiResult.json();
 
-    return data.map((category) => ({
+    return data.map(category => ({
       label: category.name,
-      value: category.id,
+      value: category.id
     }));
   }, []);
 
@@ -42,10 +42,10 @@ const HelpForm = () => {
     const urlSearchParams = new URLSearchParams({
       lat,
       lng,
-      country,
+      country
     });
     let categoriesString = "";
-    Object.keys(categories).forEach((categoryId) => {
+    Object.keys(categories).forEach(categoryId => {
       categoriesString += `${categoryId}&categories[]=`;
     });
     urlSearchParams.append("categories[]", categoriesString);
@@ -55,29 +55,29 @@ const HelpForm = () => {
     return data;
   };
 
-  const evaluate = async (formData) => {
+  const evaluate = async formData => {
     const {
       latlng: { lat, lng },
-      countryCode,
+      countryCode
     } = formData[1];
     const categoriesFormData = formData[4];
     const [entities, entitiesWithoutLocation] = await Promise.all([
       await fetchEntities(lat, lng, countryCode, categoriesFormData),
-      await fetchEntitiesWithoutLocation(),
+      await fetchEntitiesWithoutLocation()
     ]);
 
     const selectedCity = `${formData[1].name}, ${formData[1].administrative}, ${formData[1].country}`;
     const relationSituation = askForHelpForm().form[1].options.find(
-      (option) => option.value === formData[2]
+      option => option.value === formData[2]
     ).label;
     const currentSituation = askForHelpForm().form[2].options.find(
-      (option) => option.value === formData[3]
+      option => option.value === formData[3]
     ).label;
     const selectedCategoriesString = categories
-      .filter((category) =>
+      .filter(category =>
         Object.keys(formData[4]).includes(category.value.toString())
       )
-      .map((selectedCategory) => selectedCategory.label)
+      .map(selectedCategory => selectedCategory.label)
       .join(", ");
 
     setFormResponse({
@@ -87,13 +87,13 @@ const HelpForm = () => {
         selectedCity,
         relationSituation,
         currentSituation,
-        selectedCategoriesString,
-      },
+        selectedCategoriesString
+      }
     });
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
     return 0;
   };
@@ -141,12 +141,12 @@ const HelpForm = () => {
           )}
           <div className="results-wrapper">
             {!formResponse.entities.length && (
-              <p>
+              <p className="title is-4 is-spaced">
                 Din păcate în țara ta nu am găsit o organizație care să se fi
                 înscris în Diaspora Hub și care să te poată ajuta.
               </p>
             )}
-            <p>
+            <p className="subtitle is-5">
               Poți încerca să postezi și un mesaj în grupurile de Facebook de
               mai jos sau să dai un mesaj altor organizații din țara ta, cu
               rugămintea să te direcționeze către alte posibile surse de
