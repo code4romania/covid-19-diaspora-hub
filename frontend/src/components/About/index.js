@@ -61,16 +61,16 @@ const About = () => {
             Task Force pro-bono, cu sprijinul Ministerului Afacerilor Externe și
             al Departamentului pentru Românii de Pretutindeni.
           </p>
-          <div>
-            <img src={maeLogo} height="60" alt="mae" />
-            <img src={aadrLogo} height="60" alt="aadr" />
-            <img src={govLogo} height="60" alt="gov" />
-            <img src={dprpLogo} height="60" alt="dprp" />
+          <div className="sponsors">
+            <img src={govLogo} height="100" alt="gov" />
+            <img src={aadrLogo} height="100" alt="aadr" />
+            <img src={maeLogo} height="100" alt="mae" />
+            <img src={dprpLogo} height="100" alt="dprp" />
           </div>
           <hr />
           <br />
           <div className="sponsors">
-            <h2>
+            <h2 className="title is-5">
               <strong>
                 Programul Code for Romania Task Force este susținut de:
               </strong>
