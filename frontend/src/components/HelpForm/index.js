@@ -90,6 +90,11 @@ const HelpForm = () => {
         selectedCategoriesString
       }
     });
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
     return 0;
   };
 
@@ -136,12 +141,12 @@ const HelpForm = () => {
           )}
           <div className="results-wrapper">
             {!formResponse.entities.length && (
-              <p>
+              <p className="title is-4 is-spaced">
                 Din păcate în țara ta nu am găsit o organizație care să se fi
                 înscris în Diaspora Hub și care să te poată ajuta.
               </p>
             )}
-            <p>
+            <p className="subtitle is-5">
               Poți încerca să postezi și un mesaj în grupurile de Facebook de
               mai jos sau să dai un mesaj altor organizații din țara ta, cu
               rugămintea să te direcționeze către alte posibile surse de
