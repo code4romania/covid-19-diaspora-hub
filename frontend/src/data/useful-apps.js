@@ -72,7 +72,7 @@ export default [
     ]
   },
   {
-    title: "Vrei să ajuți. Intră aici",
+    title: "Vrei să ajuți? Intră aici",
     doc_type: "USEFUL_APP",
     doc_id: 6,
     active: true,
