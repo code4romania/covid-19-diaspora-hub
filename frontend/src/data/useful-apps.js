@@ -70,5 +70,20 @@ export default [
         link: "https://datelazi.ro/"
       }
     ]
+  },
+  {
+    title: "Vrei să ajuți? Intră aici",
+    doc_type: "USEFUL_APP",
+    doc_id: 6,
+    active: true,
+    display_order: 6,
+    app_type: "OFFER_HELP",
+    content: null,
+    buttons: [
+      {
+        title: "Donează prin RoHelp",
+        link: "https://rohelp.ro/"
+      }
+    ]
   }
 ];
