@@ -27,7 +27,7 @@ const SearchResult = ({ entity, color, userResponse }) => (
             </a>
             ):
           </b>
-          {entity.address.map(address => (
+          {entity.address.map((address) => (
             <>
               <br />
               {address}
@@ -78,7 +78,7 @@ SearchResult.propTypes = {
     name: PropTypes.string,
     latlng: PropTypes.shape({
       lat: PropTypes.string,
-      lng: PropTypes.string
+      lng: PropTypes.string,
     }),
     description: PropTypes.string,
     address: PropTypes.arrayOf(PropTypes.string),
@@ -86,20 +86,20 @@ SearchResult.propTypes = {
     contact: PropTypes.shape({
       url: PropTypes.string,
       phone: PropTypes.string,
-      email: PropTypes.string
-    })
+      email: PropTypes.string,
+    }),
   }),
   userResponse: PropTypes.shape({
     selectedCity: PropTypes.string,
     relationSituation: PropTypes.string,
     currentSituation: PropTypes.string,
-    selectedCategoriesString: PropTypes.string
+    selectedCategoriesString: PropTypes.string,
   }),
-  color: PropTypes.oneOf(["cyan", "blue"])
+  color: PropTypes.oneOf(["cyan", "blue"]),
 };
 
 SearchResult.defaultProps = {
-  color: "blue"
+  color: "blue",
 };
 
 export default SearchResult;

@@ -7,7 +7,7 @@ export const AlgoliaSearch = ({ question, onAnswer }) => {
   const onChange = ({ suggestion }) => {
     const answer = {
       questionId: question.questionId,
-      value: suggestion
+      value: suggestion,
     };
     onAnswer(answer);
   };
@@ -17,7 +17,7 @@ export const AlgoliaSearch = ({ question, onAnswer }) => {
       <AlgoliaPlaces
         placeholder="Completează orașul sau adresa ta aici"
         options={{ ...algoliaConfig, type: "city" }}
-        onChange={searchResult => onChange(searchResult)}
+        onChange={(searchResult) => onChange(searchResult)}
         // onLimit={() => setErrorMessage("Ne pare rau, a aparut o problema.")}
         // onError={() => setErrorMessage("Ne pare rau, a aparut o problema.")}
       />
@@ -28,7 +28,7 @@ export const AlgoliaSearch = ({ question, onAnswer }) => {
 AlgoliaSearch.propTypes = {
   question: PropTypes.shape({
     questionId: PropTypes.number.isRequired,
-    questionText: PropTypes.string.isRequired
+    questionText: PropTypes.string.isRequired,
   }),
-  onAnswer: PropTypes.func
+  onAnswer: PropTypes.func,
 };
