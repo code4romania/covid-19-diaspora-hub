@@ -3,7 +3,7 @@ import {
   Hero,
   Instruments,
   SocialsShare,
-  MailchimpSubscribe
+  MailchimpSubscribe,
 } from "@code4ro/taskforce-fe-components";
 import bandaSponsori from "../../images/banda_sponsori.png";
 import aadrLogo from "../../images/aadr_logo.png";
@@ -14,7 +14,7 @@ import UsefulApps from "../../data/useful-apps";
 import "./About.scss";
 import {
   renderInstrumentItem,
-  remapInstrumentsData
+  remapInstrumentsData,
 } from "../../utils/instruments.utils";
 import { mailchimpURL } from "../../config/mailchimp";
 
@@ -88,16 +88,16 @@ const About = () => {
           <Hero title="Instrumente utile" useFallbackIcon={true} />
 
           <Instruments layout="grid">
-            {instrumentsData.info.map(usefulApp =>
+            {instrumentsData.info.map((usefulApp) =>
               renderInstrumentItem(usefulApp)
             )}
-            {instrumentsData.news.map(usefulApp =>
+            {instrumentsData.news.map((usefulApp) =>
               renderInstrumentItem(usefulApp)
             )}
-            {instrumentsData.offer_help.map(usefulApp =>
+            {instrumentsData.offer_help.map((usefulApp) =>
               renderInstrumentItem(usefulApp)
             )}
-            {instrumentsData.data.map(usefulApp =>
+            {instrumentsData.data.map((usefulApp) =>
               renderInstrumentItem(usefulApp)
             )}
           </Instruments>
