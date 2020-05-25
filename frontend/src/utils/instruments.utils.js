@@ -1,14 +1,14 @@
 import React from "react";
 import { InstrumentsItem } from "@code4ro/taskforce-fe-components";
 
-const hasButtons = buttons => {
+const hasButtons = (buttons) => {
   return buttons && buttons.length;
 };
 
 const getCategoryItems = (usefulApps, category) => {
-  return usefulApps.filter(usefulApp => usefulApp.app_type === category);
+  return usefulApps.filter((usefulApp) => usefulApp.app_type === category);
 };
-const remapInstrumentsData = data => {
+const remapInstrumentsData = (data) => {
   const sortedData = data.sort((a, b) => {
     return a.display_order - b.display_order;
   });
@@ -16,16 +16,16 @@ const remapInstrumentsData = data => {
     info: getCategoryItems(sortedData, "INFO"),
     news: getCategoryItems(sortedData, "NEWS"),
     data: getCategoryItems(sortedData, "DATA"),
-    offer_help: getCategoryItems(sortedData, "OFFER_HELP")
+    offer_help: getCategoryItems(sortedData, "OFFER_HELP"),
   };
 };
 
-const renderInstrumentItem = usefulApp => {
+const renderInstrumentItem = (usefulApp) => {
   const cartegoryMap = {
     NEWS: "green",
     OFFER_HELP: "red",
     DATA: "pink",
-    INFO: "yellow"
+    INFO: "yellow",
   };
   return (
     <InstrumentsItem

@@ -5,14 +5,14 @@ import {
   Link,
   Route,
   Switch,
-  useHistory
+  useHistory,
 } from "react-router-dom";
 import { logPageView } from "./analyticsTracker";
 
 import {
   Header,
   DevelopedBy,
-  IncubatedBy
+  IncubatedBy,
 } from "@code4ro/taskforce-fe-components";
 
 import LogoSvg from "./images/logo.svg";
@@ -62,7 +62,7 @@ const MenuItems = [
   </a>,
   <Link to="/despre" key={"des"}>
     Despre
-  </Link>
+  </Link>,
 ];
 
 const AppWrapper = () => (
