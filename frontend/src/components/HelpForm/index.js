@@ -43,7 +43,10 @@ const HelpForm = () => {
     try {
       url = new URL(`${process.env.REACT_APP_API_URL}/entities/search`);
     } catch (error) {
-      url = new URL(`${process.env.REACT_APP_API_URL}/entities/search`, window.location.origin);
+      url = new URL(
+        `${process.env.REACT_APP_API_URL}/entities/search`,
+        window.location.origin
+      );
     }
 
     const urlSearchParams = new URLSearchParams({
