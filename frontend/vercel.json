@@ -1,0 +1,12 @@
+{
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "/api/v1",
+      "ALGOLIA_APP_ID": "pl7PQT9Z4YFT",
+      "ALGOLIA_API_KEY": "@algolia-api-key"
+    }
+  },
+  "rewrites": [
+    { "source" : "/api/(.*)", "destination": "https://origin.diasporahub.ro/api/$1" }
+  ]
+}
