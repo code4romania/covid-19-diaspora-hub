@@ -14,9 +14,13 @@ How: Any citizen living abroad can create an account in the platform, where, tho
 
 ## Contributing
 
-This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](.github/CONTRIBUTING.md).
+This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](https://github.com/code4romania/.github/blob/master/CONTRIBUTING.md). If you want to make any change to this repository, please **make a fork first**.
 
-Also, this is [the workflow we follow](.github/WORKFLOW.md).
+Help us out by testing this project in the [staging environment](https://diaspora-hub.now.sh). If you see something that doesn't quite work the way you expect it to, open an Issue. Make sure to describe what you _expect to happen_ and _what is actually happening_ in detail.
+
+If you would like to suggest new functionality, open an Issue and mark it as a **[Feature request]**. Please be specific about why you think this functionality will be of use. If you can, please include some visual description of what you would like the UI to look like, if you are suggesting new UI elements.
+
+Also, this is [the workflow we follow](https://github.com/code4romania/.github/blob/master/WORKFLOW.md).
 
 ## Built With
 
