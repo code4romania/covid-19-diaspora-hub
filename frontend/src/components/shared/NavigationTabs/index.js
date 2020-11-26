@@ -23,11 +23,11 @@ const NavigationTabs = ({ history, location: { pathname } }) => (
 
 NavigationTabs.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func
+    push: PropTypes.func,
   }),
   location: PropTypes.shape({
-    pathname: PropTypes.string
-  })
+    pathname: PropTypes.string,
+  }),
 };
 
 export default withRouter(NavigationTabs);

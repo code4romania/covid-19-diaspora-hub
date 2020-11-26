@@ -1,9 +1,0 @@
-{
-  "build": {
-    "env": {
-      "REACT_APP_API_URL": "https://staging.diasporahub.ro/api/v1",
-      "ALGOLIA_APP_ID": "pl7PQT9Z4YFT",
-      "ALGOLIA_API_KEY": "@algolia-api-key"
-    }
-  }
-}
