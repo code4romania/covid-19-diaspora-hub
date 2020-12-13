@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Hero,
+  BannerImage,
   Instruments,
   SocialsShare,
   MailchimpSubscribe,
@@ -17,6 +18,7 @@ import {
   remapInstrumentsData,
 } from "../../utils/instruments.utils";
 import { mailchimpURL } from "../../config/mailchimp";
+import rovaccinareImage from "../../images/rovaccinare.jpg";
 
 const About = () => {
   const instrumentsData = remapInstrumentsData(UsefulApps);
@@ -88,6 +90,14 @@ const About = () => {
           <Hero title="Instrumente utile" useFallbackIcon={true} />
 
           <Instruments layout="grid">
+            <BannerImage
+              link="https://vaccinare-covid.gov.ro/"
+              image={{
+                src: rovaccinareImage,
+                alt: "#ROVACCINARE",
+                title: "#ROVACCINARE",
+              }}
+            />
             {instrumentsData.info.map((usefulApp) =>
               renderInstrumentItem(usefulApp)
             )}
