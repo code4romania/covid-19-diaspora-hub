@@ -1,23 +1,40 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+namespace Database\Factories;
 
 use App\Models\Entity;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Entity::class, function (Faker $faker) {
-    return [
-        'name'           => $faker->company,
-        'description'    => $faker->realText(rand(10, 500)),
-        'email'          => $faker->safeEmail,
-        'phone'          => $faker->phoneNumber,
-        'url'            => $faker->url,
-        'address_line_1' => $faker->streetAddress,
-        'country'        => $faker->countryCode,
-        'city'           => $faker->city,
-        'county'         => $faker->county,
-        'postal_code'    => $faker->postcode,
-        'latitude'       => $faker->latitude,
-        'longitude'      => $faker->longitude,
-    ];
-});
+class EntityFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Entity::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name'           => $this->faker->company(),
+            'description'    => $this->faker->realText(500),
+            'email'          => $this->faker->safeEmail(),
+            'phone'          => $this->faker->phoneNumber(),
+            'url'            => $this->faker->url(),
+            'address_line_1' => $this->faker->streetAddress(),
+            'country'        => $this->faker->countryCode(),
+            'city'           => $this->faker->city(),
+            'county'         => $this->faker->county(),
+            'postal_code'    => $this->faker->postcode(),
+            'latitude'       => $this->faker->latitude(),
+            'longitude'      => $this->faker->longitude(),
+        ];
+    }
+}
