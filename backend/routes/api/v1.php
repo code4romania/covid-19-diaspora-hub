@@ -1,20 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\Api\v1\CategoryController;
 use App\Http\Controllers\Api\v1\DiplomaticMissionController;
 use App\Http\Controllers\Api\v1\EntityController;
 use App\Http\Controllers\Api\v1\TypeController;
 use Illuminate\Support\Facades\Route;
 
-/**
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
+/*
+ * |--------------------------------------------------------------------------
+ * | API Routes
+ * |--------------------------------------------------------------------------
+ * |
+ * | Here is where you can register API routes for your application. These
+ * | routes are loaded by the RouteServiceProvider within a group which
+ * | is assigned the "api" middleware group. Enjoy building your API!
+ * |
  */
 
 Route::prefix('entities')->name('entities.')->group(function () {

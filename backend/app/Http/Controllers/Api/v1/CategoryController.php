@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
@@ -13,7 +15,7 @@ use App\Models\Category;
 final class CategoryController extends Controller
 {
     /**
-     * Get all builtin categories
+     * Get all builtin categories.
      */
     public function index(): CategoryCollection
     {
@@ -22,7 +24,7 @@ final class CategoryController extends Controller
 
     /**
      * Get a single category
-     * Retrieves a collection of entities that belong to the current category
+     * Retrieves a collection of entities that belong to the current category.
      *
      * @urlParam category required The ID of the category. Example: 5
      */

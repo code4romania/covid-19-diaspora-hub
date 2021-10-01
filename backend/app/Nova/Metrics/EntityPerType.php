@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Nova\Metrics;
 
 use App\Models\Type;
@@ -11,14 +13,14 @@ class EntityPerType extends Partition
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return mixed
      */
     public function calculate(NovaRequest $request)
     {
         return $this->result(
             Type::all()
-                ->flatMap(fn ($type)  => [$type->name => $type->entities_count])
+                ->flatMap(fn ($type) => [$type->name => $type->entities_count])
                 ->toArray()
         );
     }
@@ -26,7 +28,7 @@ class EntityPerType extends Partition
     /**
      * Determine for how many minutes the metric should be cached.
      *
-     * @return  \DateTimeInterface|\DateInterval|float|int
+     * @return \DateTimeInterface|\DateInterval|float|int
      */
     public function cacheFor()
     {

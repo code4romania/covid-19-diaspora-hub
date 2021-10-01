@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Category;
 use App\Models\Entity;
 use App\Models\Type;
@@ -14,15 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $categories = factory(Category::class, 10)->create()->pluck('id');
-        $types = factory(Type::class, 3)->create();
+        $categories = Category::factory()->count(10)->create();
+        $types = Type::factory()->count(3)->create();
 
-        factory(Entity::class, 500)->create()->each(function ($entity) use ($categories, $types) {
-            $entity->categories()->attach(
-                $categories->random(rand(1, 5))->toArray()
-            );
+        Entity::factory()
+            ->count(500)
+            ->create()
+            ->each(function (Entity $entity) use ($categories, $types) {
+                $entity->categories()->attach(
+                    $categories->random(mt_rand(1, 5))
+                );
 
-            $entity->type()->associate($types->random())->save();
-        });
+                $entity->type()->associate($types->random());
+
+                $entity->save();
+            });
     }
 }

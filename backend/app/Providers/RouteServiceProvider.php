@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use App\Http\Controllers\Api\FallbackController;
@@ -51,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the versioned api routes for the application.
      *
-     * @param string $version
+     * @param  string $version
      * @return void
      */
     protected function mapApiRoutes(string $version): void

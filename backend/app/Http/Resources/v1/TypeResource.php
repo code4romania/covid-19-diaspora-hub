@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Resources\v1;
 
-use App\Http\Resources\v1\EntityCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TypeResource extends JsonResource
@@ -10,7 +11,7 @@ class TypeResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function toArray($request)

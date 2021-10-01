@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
@@ -13,7 +15,7 @@ use App\Models\Type;
 class TypeController extends Controller
 {
     /**
-     * Get all entity types
+     * Get all entity types.
      */
     public function index(): TypeCollection
     {
@@ -22,7 +24,7 @@ class TypeController extends Controller
 
     /**
      * Get a single entity type
-     * Retrieves a collection of entities that belong to the current type
+     * Retrieves a collection of entities that belong to the current type.
      *
      * @urlParam type required The ID of the entity type. Example: 3
      */

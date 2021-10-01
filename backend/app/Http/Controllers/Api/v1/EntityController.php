@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
@@ -15,7 +17,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 class EntityController extends Controller
 {
     /**
-     * Get all entities
+     * Get all entities.
      */
     public function index(): EntityCollection
     {
@@ -23,7 +25,7 @@ class EntityController extends Controller
     }
 
     /**
-     * Get all entities without a location
+     * Get all entities without a location.
      */
     public function withoutLocation(): EntityCollection
     {
@@ -31,7 +33,7 @@ class EntityController extends Controller
     }
 
     /**
-     * Get a single entity
+     * Get a single entity.
      *
      * @urlParam entity required The ID of the entity. Example: 2
      */
@@ -41,7 +43,7 @@ class EntityController extends Controller
     }
 
     /**
-     * Search for entities
+     * Search for entities.
      *
      * @queryParam categories[] required List of category ids to return. Example: 8
      * @queryParam lat required Latitude. Example: 85.766782
