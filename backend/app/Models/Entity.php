@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use App\Models\Category;
-use App\Models\Type;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Malhal\Geographical\Geographical;
 
 class Entity extends Model
 {
+    use HasFactory;
     use Geographical;
 
     protected static $kilometers = true;

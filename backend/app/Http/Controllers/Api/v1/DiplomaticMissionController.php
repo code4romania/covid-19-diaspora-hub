@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
@@ -12,7 +14,7 @@ use App\Models\DiplomaticMission;
 final class DiplomaticMissionController extends Controller
 {
     /**
-     * Get all diplomatic missions
+     * Get all diplomatic missions.
      */
     public function index(): DiplomaticMissionCollection
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Nova\Filters;
 
 use Illuminate\Http\Request;
@@ -10,9 +12,9 @@ class LocationFilter extends BooleanFilter
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  mixed  $value
+     * @param  \Illuminate\Http\Request              $request
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @param  mixed                                 $value
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function apply(Request $request, $query, $value)
@@ -23,7 +25,7 @@ class LocationFilter extends BooleanFilter
     /**
      * Get the filter's available options.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function options(Request $request)
